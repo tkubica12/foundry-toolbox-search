@@ -1,0 +1,15 @@
+[project]
+name = "foundry-toolbox-search-measurement"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = [
+  "azure-ai-projects",
+  "azure-identity",
+  "mcp[cli]",
+  "openai",
+  "python-dotenv",
+  "rich>=15.0.0",
+]
+
+[tool.uv]
+package = true

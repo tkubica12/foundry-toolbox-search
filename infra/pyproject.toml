@@ -1,0 +1,18 @@
+[project]
+name = "foundry-toolbox-search-infra"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = [
+  "azure-ai-projects",
+  "azure-identity",
+  "azure-identity-broker>=1.3.0",
+  "azure-mgmt-appcontainers>=4.0.0",
+  "azure-mgmt-cognitiveservices",
+  "azure-mgmt-containerregistry>=15.0.0",
+  "azure-mgmt-resource",
+  "python-dotenv>=1.2.2",
+  "rich>=15.0.0",
+]
+
+[tool.uv]
+package = true

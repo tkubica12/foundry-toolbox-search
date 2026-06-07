@@ -1,0 +1,1 @@
+"""Investments MCP service."""

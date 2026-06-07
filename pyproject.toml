@@ -1,0 +1,15 @@
+[project]
+name = "foundry-toolbox-search"
+version = "0.1.0"
+description = "Foundry Toolbox and Tool Search demo workspace"
+requires-python = ">=3.12"
+dependencies = []
+
+[tool.uv.workspace]
+members = [
+  "infra",
+  "measurement",
+  "mcp_servers/accounts",
+  "mcp_servers/investments",
+  "mcp_servers/loans",
+]
