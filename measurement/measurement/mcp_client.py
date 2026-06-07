@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import asyncio
 from dataclasses import dataclass
 from typing import Any
 
@@ -26,29 +27,47 @@ def _headers(endpoint: McpEndpoint, credential: TokenCredential | None) -> dict[
 
 
 async def list_tools(endpoint: McpEndpoint, credential: TokenCredential | None = None) -> list[Any]:
-    async with streamablehttp_client(endpoint.url, headers=_headers(endpoint, credential)) as (read, write, _):
-        async with ClientSession(read, write) as session:
-            await session.initialize()
-            result = await session.list_tools()
-            return list(result.tools)
+    last_error: BaseException | None = None
+    for attempt in range(4):
+        try:
+            async with streamablehttp_client(endpoint.url, headers=_headers(endpoint, credential)) as (read, write, _):
+                async with ClientSession(read, write) as session:
+                    await session.initialize()
+                    result = await session.list_tools()
+                    return list(result.tools)
+        except Exception as exc:
+            last_error = exc
+            if not endpoint.foundry_toolbox or attempt == 3:
+                raise
+            await asyncio.sleep(2**attempt)
+    raise RuntimeError("Unable to list MCP tools") from last_error
 
 
 async def call_tool(endpoint: McpEndpoint, name: str, arguments: dict[str, Any], credential: TokenCredential | None = None) -> str:
-    async with streamablehttp_client(endpoint.url, headers=_headers(endpoint, credential)) as (read, write, _):
-        async with ClientSession(read, write) as session:
-            await session.initialize()
-            result = await session.call_tool(name, arguments=arguments)
-            chunks: list[str] = []
-            for item in result.content:
-                text = getattr(item, "text", None)
-                if text is not None:
-                    chunks.append(text)
-                else:
-                    chunks.append(json.dumps(item.model_dump(mode="json"), default=str))
-            structured = getattr(result, "structuredContent", None)
-            if structured:
-                chunks.append(json.dumps(structured, default=str))
-            return "\n".join(chunks)
+    last_error: BaseException | None = None
+    for attempt in range(4):
+        try:
+            async with streamablehttp_client(endpoint.url, headers=_headers(endpoint, credential)) as (read, write, _):
+                async with ClientSession(read, write) as session:
+                    await session.initialize()
+                    result = await session.call_tool(name, arguments=arguments)
+                    chunks: list[str] = []
+                    for item in result.content:
+                        text = getattr(item, "text", None)
+                        if text is not None:
+                            chunks.append(text)
+                        else:
+                            chunks.append(json.dumps(item.model_dump(mode="json"), default=str))
+                    structured = getattr(result, "structuredContent", None)
+                    if structured:
+                        chunks.append(json.dumps(structured, default=str))
+                    return "\n".join(chunks)
+        except Exception as exc:
+            last_error = exc
+            if not endpoint.foundry_toolbox or attempt == 3:
+                raise
+            await asyncio.sleep(2**attempt)
+    raise RuntimeError(f"Unable to call MCP tool {name}") from last_error
 
 
 def tool_to_schema(tool: Any, exposed_name: str | None = None) -> dict[str, Any]:

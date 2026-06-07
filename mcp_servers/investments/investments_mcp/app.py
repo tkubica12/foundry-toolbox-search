@@ -135,6 +135,55 @@ async def recommend_tax_loss_harvest(portfolio_id: str, minimum_loss: float) -> 
     return {"portfolio_id": portfolio_id, "candidates": [{"symbol": "EUROTECH", "unrealized_loss": max(minimum_loss, 1450.0)}]}
 
 
+def add_mock_investment_tool(name: str, description: str) -> None:
+    async def tool(customer_id: str, portfolio_id: str, amount: float = 1000.0) -> dict:
+        return {
+            "marker": investment_marker(customer_id),
+            "tool": name,
+            "portfolio_id": portfolio_id,
+            "amount": amount,
+            "status": "mocked",
+            "currency": "EUR",
+        }
+
+    mcp.add_tool(tool, name=name, description=description)
+
+
+for tool_name, tool_description in [
+    ("screen_bond_ladder", "Screen a bond ladder for maturity and income targets."),
+    ("estimate_duration_risk", "Estimate duration risk for a fixed-income allocation."),
+    ("calculate_sharpe_ratio", "Calculate mocked Sharpe ratio for a portfolio."),
+    ("calculate_sortino_ratio", "Calculate mocked Sortino ratio for a portfolio."),
+    ("review_fund_overlap", "Review overlap between funds in a portfolio."),
+    ("assess_currency_exposure", "Assess currency exposure in a portfolio."),
+    ("recommend_cash_allocation", "Recommend cash allocation based on liquidity need."),
+    ("estimate_drawdown_risk", "Estimate potential drawdown risk."),
+    ("review_structured_note", "Review suitability of a structured note."),
+    ("calculate_yield_to_maturity", "Calculate mocked yield to maturity."),
+    ("estimate_total_expense_ratio", "Estimate total portfolio expense ratio."),
+    ("review_private_market_commitment", "Review private market commitment pacing."),
+    ("assess_factor_exposure", "Assess factor exposure such as value or momentum."),
+    ("calculate_tracking_error", "Calculate tracking error versus a benchmark."),
+    ("recommend_glide_path", "Recommend target-date glide path allocation."),
+    ("screen_income_stocks", "Screen income stocks for dividend yield."),
+    ("estimate_tax_drag", "Estimate tax drag on portfolio returns."),
+    ("review_restricted_list", "Review whether a security is on restricted list."),
+    ("calculate_portfolio_beta", "Calculate mocked portfolio beta."),
+    ("assess_alternative_allocation", "Assess alternative investment allocation."),
+    ("review_margin_requirement", "Review margin requirement for a trade."),
+    ("estimate_scenario_return", "Estimate portfolio return under a scenario."),
+    ("calculate_required_minimum_distribution", "Calculate mocked retirement distribution."),
+    ("review_client_investment_objective", "Review client investment objective alignment."),
+    ("screen_low_volatility_etfs", "Screen low-volatility ETF candidates."),
+    ("estimate_reinvestment_income", "Estimate reinvestment income."),
+    ("calculate_capital_gains_budget", "Calculate capital gains budget."),
+    ("review_portfolio_turnover", "Review portfolio turnover."),
+    ("assess_fiduciary_watchlist", "Assess fiduciary watchlist items."),
+    ("summarize_investment_proposal", "Summarize mocked investment proposal highlights."),
+]:
+    add_mock_investment_tool(tool_name, tool_description)
+
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     async with AsyncExitStack() as stack:

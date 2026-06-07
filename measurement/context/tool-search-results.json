@@ -1,0 +1,2456 @@
+{
+  "fsi-reference-cold-1780853386": {
+    "loan_balance": {
+      "query": "loan current balance as of date get loan balance tool",
+      "limit": 5,
+      "result": {
+        "tools": [
+          {
+            "name": "loans___assess_portfolio_concentration",
+            "description": "Assess loan portfolio concentration risk.",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "customer_id": {
+                  "title": "Customer Id",
+                  "type": "string"
+                },
+                "reference_id": {
+                  "title": "Reference Id",
+                  "type": "string"
+                },
+                "amount": {
+                  "default": 1000,
+                  "title": "Amount",
+                  "type": "number"
+                }
+              },
+              "required": [
+                "customer_id",
+                "reference_id"
+              ]
+            },
+            "_meta": {
+              "tool_configuration": {
+                "type": "mcp",
+                "server_label": "loans",
+                "server_url": "https://fsitbx0606tk-loans-mcp.whitemoss-9b71305a.swedencentral.azurecontainerapps.io/mcp",
+                "require_approval": "never",
+                "tool_configs": {
+                  "get_loan_balance": {
+                    "additional_search_text": "loans___get_loan_balance get_loan_balance loan balance current loan balance outstanding balance loan id as of date"
+                  },
+                  "get_mortgage_affordability": {
+                    "additional_search_text": "mortgage affordability borrowing capacity annual income monthly debt home loan"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "name": "loans___assess_guarantor_strength",
+            "description": "Assess guarantor strength for a credit application.",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "customer_id": {
+                  "title": "Customer Id",
+                  "type": "string"
+                },
+                "reference_id": {
+                  "title": "Reference Id",
+                  "type": "string"
+                },
+                "amount": {
+                  "default": 1000,
+                  "title": "Amount",
+                  "type": "number"
+                }
+              },
+              "required": [
+                "customer_id",
+                "reference_id"
+              ]
+            },
+            "_meta": {
+              "tool_configuration": {
+                "type": "mcp",
+                "server_label": "loans",
+                "server_url": "https://fsitbx0606tk-loans-mcp.whitemoss-9b71305a.swedencentral.azurecontainerapps.io/mcp",
+                "require_approval": "never",
+                "tool_configs": {
+                  "get_loan_balance": {
+                    "additional_search_text": "loans___get_loan_balance get_loan_balance loan balance current loan balance outstanding balance loan id as of date"
+                  },
+                  "get_mortgage_affordability": {
+                    "additional_search_text": "mortgage affordability borrowing capacity annual income monthly debt home loan"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "name": "loans___assess_green_mortgage_discount",
+            "description": "Assess eligibility for green mortgage discount.",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "customer_id": {
+                  "title": "Customer Id",
+                  "type": "string"
+                },
+                "reference_id": {
+                  "title": "Reference Id",
+                  "type": "string"
+                },
+                "amount": {
+                  "default": 1000,
+                  "title": "Amount",
+                  "type": "number"
+                }
+              },
+              "required": [
+                "customer_id",
+                "reference_id"
+              ]
+            },
+            "_meta": {
+              "tool_configuration": {
+                "type": "mcp",
+                "server_label": "loans",
+                "server_url": "https://fsitbx0606tk-loans-mcp.whitemoss-9b71305a.swedencentral.azurecontainerapps.io/mcp",
+                "require_approval": "never",
+                "tool_configs": {
+                  "get_loan_balance": {
+                    "additional_search_text": "loans___get_loan_balance get_loan_balance loan balance current loan balance outstanding balance loan id as of date"
+                  },
+                  "get_mortgage_affordability": {
+                    "additional_search_text": "mortgage affordability borrowing capacity annual income monthly debt home loan"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "name": "accounts___summarize_cash_flow",
+            "description": "Summarize cash flow for a date range.",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "account_id": {
+                  "title": "Account Id",
+                  "type": "string"
+                },
+                "start_date": {
+                  "title": "Start Date",
+                  "type": "string"
+                },
+                "end_date": {
+                  "title": "End Date",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "account_id",
+                "start_date",
+                "end_date"
+              ]
+            },
+            "_meta": {
+              "tool_configuration": {
+                "type": "mcp",
+                "server_label": "accounts",
+                "server_url": "https://fsitbx0606tk-accounts-mcp.whitemoss-9b71305a.swedencentral.azurecontainerapps.io/mcp",
+                "require_approval": "never",
+                "tool_configs": {
+                  "check_account_kyc_status": {
+                    "additional_search_text": "accounts___check_account_kyc_status check_account_kyc_status current account KYC status compliance know your customer customer identity review"
+                  },
+                  "get_account_balance": {
+                    "additional_search_text": "current account balance available balance checking account cash account"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "name": "accounts___summarize_monthly_statement",
+            "description": "Summarize monthly current account statement.",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "customer_id": {
+                  "title": "Customer Id",
+                  "type": "string"
+                },
+                "account_id": {
+                  "title": "Account Id",
+                  "type": "string"
+                },
+                "amount": {
+                  "default": 1000,
+                  "title": "Amount",
+                  "type": "number"
+                }
+              },
+              "required": [
+                "customer_id",
+                "account_id"
+              ]
+            },
+            "_meta": {
+              "tool_configuration": {
+                "type": "mcp",
+                "server_label": "accounts",
+                "server_url": "https://fsitbx0606tk-accounts-mcp.whitemoss-9b71305a.swedencentral.azurecontainerapps.io/mcp",
+                "require_approval": "never",
+                "tool_configs": {
+                  "check_account_kyc_status": {
+                    "additional_search_text": "accounts___check_account_kyc_status check_account_kyc_status current account KYC status compliance know your customer customer identity review"
+                  },
+                  "get_account_balance": {
+                    "additional_search_text": "current account balance available balance checking account cash account"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "mortgage_affordability": {
+      "query": "mortgage affordability annual income monthly debt",
+      "limit": 5,
+      "result": {
+        "tools": [
+          {
+            "name": "investments___screen_bond_ladder",
+            "description": "Screen a bond ladder for maturity and income targets.",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "customer_id": {
+                  "title": "Customer Id",
+                  "type": "string"
+                },
+                "portfolio_id": {
+                  "title": "Portfolio Id",
+                  "type": "string"
+                },
+                "amount": {
+                  "default": 1000,
+                  "title": "Amount",
+                  "type": "number"
+                }
+              },
+              "required": [
+                "customer_id",
+                "portfolio_id"
+              ]
+            },
+            "_meta": {
+              "tool_configuration": {
+                "type": "mcp",
+                "server_label": "investments",
+                "server_url": "https://fsitbx0606tk-investments-mcp.whitemoss-9b71305a.swedencentral.azurecontainerapps.io/mcp",
+                "require_approval": "never",
+                "tool_configs": {
+                  "get_portfolio_summary": {
+                    "additional_search_text": "investments___get_portfolio_summary get_portfolio_summary portfolio summary market value portfolio valuation total value customer portfolio"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "name": "loans___review_debt_consolidation_fit",
+            "description": "Review whether debt consolidation loan is suitable.",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "customer_id": {
+                  "title": "Customer Id",
+                  "type": "string"
+                },
+                "reference_id": {
+                  "title": "Reference Id",
+                  "type": "string"
+                },
+                "amount": {
+                  "default": 1000,
+                  "title": "Amount",
+                  "type": "number"
+                }
+              },
+              "required": [
+                "customer_id",
+                "reference_id"
+              ]
+            },
+            "_meta": {
+              "tool_configuration": {
+                "type": "mcp",
+                "server_label": "loans",
+                "server_url": "https://fsitbx0606tk-loans-mcp.whitemoss-9b71305a.swedencentral.azurecontainerapps.io/mcp",
+                "require_approval": "never",
+                "tool_configs": {
+                  "get_loan_balance": {
+                    "additional_search_text": "loans___get_loan_balance get_loan_balance loan balance current loan balance outstanding balance loan id as of date"
+                  },
+                  "get_mortgage_affordability": {
+                    "additional_search_text": "mortgage affordability borrowing capacity annual income monthly debt home loan"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "name": "loans___review_appraisal_gap",
+            "description": "Review appraisal gap risk for a mortgage application.",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "customer_id": {
+                  "title": "Customer Id",
+                  "type": "string"
+                },
+                "reference_id": {
+                  "title": "Reference Id",
+                  "type": "string"
+                },
+                "amount": {
+                  "default": 1000,
+                  "title": "Amount",
+                  "type": "number"
+                }
+              },
+              "required": [
+                "customer_id",
+                "reference_id"
+              ]
+            },
+            "_meta": {
+              "tool_configuration": {
+                "type": "mcp",
+                "server_label": "loans",
+                "server_url": "https://fsitbx0606tk-loans-mcp.whitemoss-9b71305a.swedencentral.azurecontainerapps.io/mcp",
+                "require_approval": "never",
+                "tool_configs": {
+                  "get_loan_balance": {
+                    "additional_search_text": "loans___get_loan_balance get_loan_balance loan balance current loan balance outstanding balance loan id as of date"
+                  },
+                  "get_mortgage_affordability": {
+                    "additional_search_text": "mortgage affordability borrowing capacity annual income monthly debt home loan"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "name": "loans___estimate_debt_to_income",
+            "description": "Calculate debt-to-income ratio.",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "customer_id": {
+                  "title": "Customer Id",
+                  "type": "string"
+                },
+                "annual_income": {
+                  "title": "Annual Income",
+                  "type": "number"
+                },
+                "monthly_debt": {
+                  "title": "Monthly Debt",
+                  "type": "number"
+                }
+              },
+              "required": [
+                "customer_id",
+                "annual_income",
+                "monthly_debt"
+              ]
+            },
+            "_meta": {
+              "tool_configuration": {
+                "type": "mcp",
+                "server_label": "loans",
+                "server_url": "https://fsitbx0606tk-loans-mcp.whitemoss-9b71305a.swedencentral.azurecontainerapps.io/mcp",
+                "require_approval": "never",
+                "tool_configs": {
+                  "get_loan_balance": {
+                    "additional_search_text": "loans___get_loan_balance get_loan_balance loan balance current loan balance outstanding balance loan id as of date"
+                  },
+                  "get_mortgage_affordability": {
+                    "additional_search_text": "mortgage affordability borrowing capacity annual income monthly debt home loan"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "name": "loans___verify_income_document",
+            "description": "Mock verification of income evidence.",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "customer_id": {
+                  "title": "Customer Id",
+                  "type": "string"
+                },
+                "document_type": {
+                  "title": "Document Type",
+                  "type": "string"
+                },
+                "monthly_income": {
+                  "title": "Monthly Income",
+                  "type": "number"
+                }
+              },
+              "required": [
+                "customer_id",
+                "document_type",
+                "monthly_income"
+              ]
+            },
+            "_meta": {
+              "tool_configuration": {
+                "type": "mcp",
+                "server_label": "loans",
+                "server_url": "https://fsitbx0606tk-loans-mcp.whitemoss-9b71305a.swedencentral.azurecontainerapps.io/mcp",
+                "require_approval": "never",
+                "tool_configs": {
+                  "get_loan_balance": {
+                    "additional_search_text": "loans___get_loan_balance get_loan_balance loan balance current loan balance outstanding balance loan id as of date"
+                  },
+                  "get_mortgage_affordability": {
+                    "additional_search_text": "mortgage affordability borrowing capacity annual income monthly debt home loan"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "portfolio_summary": {
+      "query": "portfolio summary market value customer portfolio",
+      "limit": 5,
+      "result": {
+        "tools": [
+          {
+            "name": "investments___get_portfolio_summary",
+            "description": "Return mocked portfolio summary.",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "customer_id": {
+                  "title": "Customer Id",
+                  "type": "string"
+                },
+                "portfolio_id": {
+                  "title": "Portfolio Id",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "customer_id",
+                "portfolio_id"
+              ]
+            },
+            "_meta": {
+              "tool_configuration": {
+                "type": "mcp",
+                "server_label": "investments",
+                "server_url": "https://fsitbx0606tk-investments-mcp.whitemoss-9b71305a.swedencentral.azurecontainerapps.io/mcp",
+                "require_approval": "never",
+                "tool_configs": {
+                  "get_portfolio_summary": {
+                    "additional_search_text": "investments___get_portfolio_summary get_portfolio_summary portfolio summary market value portfolio valuation total value customer portfolio"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "name": "investments___review_portfolio_turnover",
+            "description": "Review portfolio turnover.",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "customer_id": {
+                  "title": "Customer Id",
+                  "type": "string"
+                },
+                "portfolio_id": {
+                  "title": "Portfolio Id",
+                  "type": "string"
+                },
+                "amount": {
+                  "default": 1000,
+                  "title": "Amount",
+                  "type": "number"
+                }
+              },
+              "required": [
+                "customer_id",
+                "portfolio_id"
+              ]
+            },
+            "_meta": {
+              "tool_configuration": {
+                "type": "mcp",
+                "server_label": "investments",
+                "server_url": "https://fsitbx0606tk-investments-mcp.whitemoss-9b71305a.swedencentral.azurecontainerapps.io/mcp",
+                "require_approval": "never",
+                "tool_configs": {
+                  "get_portfolio_summary": {
+                    "additional_search_text": "investments___get_portfolio_summary get_portfolio_summary portfolio summary market value portfolio valuation total value customer portfolio"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "name": "investments___calculate_portfolio_beta",
+            "description": "Calculate mocked portfolio beta.",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "customer_id": {
+                  "title": "Customer Id",
+                  "type": "string"
+                },
+                "portfolio_id": {
+                  "title": "Portfolio Id",
+                  "type": "string"
+                },
+                "amount": {
+                  "default": 1000,
+                  "title": "Amount",
+                  "type": "number"
+                }
+              },
+              "required": [
+                "customer_id",
+                "portfolio_id"
+              ]
+            },
+            "_meta": {
+              "tool_configuration": {
+                "type": "mcp",
+                "server_label": "investments",
+                "server_url": "https://fsitbx0606tk-investments-mcp.whitemoss-9b71305a.swedencentral.azurecontainerapps.io/mcp",
+                "require_approval": "never",
+                "tool_configs": {
+                  "get_portfolio_summary": {
+                    "additional_search_text": "investments___get_portfolio_summary get_portfolio_summary portfolio summary market value portfolio valuation total value customer portfolio"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "name": "investments___estimate_portfolio_var",
+            "description": "Estimate mocked portfolio value at risk.",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "portfolio_id": {
+                  "title": "Portfolio Id",
+                  "type": "string"
+                },
+                "confidence_percent": {
+                  "title": "Confidence Percent",
+                  "type": "number"
+                },
+                "horizon_days": {
+                  "title": "Horizon Days",
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "portfolio_id",
+                "confidence_percent",
+                "horizon_days"
+              ]
+            },
+            "_meta": {
+              "tool_configuration": {
+                "type": "mcp",
+                "server_label": "investments",
+                "server_url": "https://fsitbx0606tk-investments-mcp.whitemoss-9b71305a.swedencentral.azurecontainerapps.io/mcp",
+                "require_approval": "never",
+                "tool_configs": {
+                  "get_portfolio_summary": {
+                    "additional_search_text": "investments___get_portfolio_summary get_portfolio_summary portfolio summary market value portfolio valuation total value customer portfolio"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "name": "investments___get_model_portfolio",
+            "description": "Return mocked model portfolio.",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "model_name": {
+                  "title": "Model Name",
+                  "type": "string"
+                },
+                "risk_level": {
+                  "title": "Risk Level",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "model_name",
+                "risk_level"
+              ]
+            },
+            "_meta": {
+              "tool_configuration": {
+                "type": "mcp",
+                "server_label": "investments",
+                "server_url": "https://fsitbx0606tk-investments-mcp.whitemoss-9b71305a.swedencentral.azurecontainerapps.io/mcp",
+                "require_approval": "never",
+                "tool_configs": {
+                  "get_portfolio_summary": {
+                    "additional_search_text": "investments___get_portfolio_summary get_portfolio_summary portfolio summary market value portfolio valuation total value customer portfolio"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "account_kyc": {
+      "query": "current account KYC status customer",
+      "limit": 5,
+      "result": {
+        "tools": [
+          {
+            "name": "accounts___get_account_balance",
+            "description": "Return mocked current account balance.",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "account_id": {
+                  "title": "Account Id",
+                  "type": "string"
+                },
+                "as_of_date": {
+                  "title": "As Of Date",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "account_id",
+                "as_of_date"
+              ]
+            },
+            "_meta": {
+              "tool_configuration": {
+                "type": "mcp",
+                "server_label": "accounts",
+                "server_url": "https://fsitbx0606tk-accounts-mcp.whitemoss-9b71305a.swedencentral.azurecontainerapps.io/mcp",
+                "require_approval": "never",
+                "tool_configs": {
+                  "check_account_kyc_status": {
+                    "additional_search_text": "accounts___check_account_kyc_status check_account_kyc_status current account KYC status compliance know your customer customer identity review"
+                  },
+                  "get_account_balance": {
+                    "additional_search_text": "current account balance available balance checking account cash account"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "name": "loans___get_loan_balance",
+            "description": "Return current mocked balance for a loan.",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "loan_id": {
+                  "title": "Loan Id",
+                  "type": "string"
+                },
+                "as_of_date": {
+                  "title": "As Of Date",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "loan_id",
+                "as_of_date"
+              ]
+            },
+            "_meta": {
+              "tool_configuration": {
+                "type": "mcp",
+                "server_label": "loans",
+                "server_url": "https://fsitbx0606tk-loans-mcp.whitemoss-9b71305a.swedencentral.azurecontainerapps.io/mcp",
+                "require_approval": "never",
+                "tool_configs": {
+                  "get_loan_balance": {
+                    "additional_search_text": "loans___get_loan_balance get_loan_balance loan balance current loan balance outstanding balance loan id as of date"
+                  },
+                  "get_mortgage_affordability": {
+                    "additional_search_text": "mortgage affordability borrowing capacity annual income monthly debt home loan"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "name": "accounts___check_account_kyc_status",
+            "description": "Return KYC status for current account servicing.",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "customer_id": {
+                  "title": "Customer Id",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "customer_id"
+              ]
+            },
+            "_meta": {
+              "tool_configuration": {
+                "type": "mcp",
+                "server_label": "accounts",
+                "server_url": "https://fsitbx0606tk-accounts-mcp.whitemoss-9b71305a.swedencentral.azurecontainerapps.io/mcp",
+                "require_approval": "never",
+                "tool_configs": {
+                  "check_account_kyc_status": {
+                    "additional_search_text": "accounts___check_account_kyc_status check_account_kyc_status current account KYC status compliance know your customer customer identity review"
+                  },
+                  "get_account_balance": {
+                    "additional_search_text": "current account balance available balance checking account cash account"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "name": "accounts___summarize_monthly_statement",
+            "description": "Summarize monthly current account statement.",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "customer_id": {
+                  "title": "Customer Id",
+                  "type": "string"
+                },
+                "account_id": {
+                  "title": "Account Id",
+                  "type": "string"
+                },
+                "amount": {
+                  "default": 1000,
+                  "title": "Amount",
+                  "type": "number"
+                }
+              },
+              "required": [
+                "customer_id",
+                "account_id"
+              ]
+            },
+            "_meta": {
+              "tool_configuration": {
+                "type": "mcp",
+                "server_label": "accounts",
+                "server_url": "https://fsitbx0606tk-accounts-mcp.whitemoss-9b71305a.swedencentral.azurecontainerapps.io/mcp",
+                "require_approval": "never",
+                "tool_configs": {
+                  "check_account_kyc_status": {
+                    "additional_search_text": "accounts___check_account_kyc_status check_account_kyc_status current account KYC status compliance know your customer customer identity review"
+                  },
+                  "get_account_balance": {
+                    "additional_search_text": "current account balance available balance checking account cash account"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "name": "accounts___review_payment_limit",
+            "description": "Review payment limit for a current account.",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "customer_id": {
+                  "title": "Customer Id",
+                  "type": "string"
+                },
+                "account_id": {
+                  "title": "Account Id",
+                  "type": "string"
+                },
+                "amount": {
+                  "default": 1000,
+                  "title": "Amount",
+                  "type": "number"
+                }
+              },
+              "required": [
+                "customer_id",
+                "account_id"
+              ]
+            },
+            "_meta": {
+              "tool_configuration": {
+                "type": "mcp",
+                "server_label": "accounts",
+                "server_url": "https://fsitbx0606tk-accounts-mcp.whitemoss-9b71305a.swedencentral.azurecontainerapps.io/mcp",
+                "require_approval": "never",
+                "tool_configs": {
+                  "check_account_kyc_status": {
+                    "additional_search_text": "accounts___check_account_kyc_status check_account_kyc_status current account KYC status compliance know your customer customer identity review"
+                  },
+                  "get_account_balance": {
+                    "additional_search_text": "current account balance available balance checking account cash account"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "fsi-autopin-warm-loan-single-tool-1780851831": {
+    "loan_balance": {
+      "query": "loan current balance as of date get loan balance tool",
+      "limit": 5,
+      "result": {
+        "tools": [
+          {
+            "name": "loans___get_loan_balance",
+            "description": "Return current mocked balance for a loan.",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "loan_id": {
+                  "title": "Loan Id",
+                  "type": "string"
+                },
+                "as_of_date": {
+                  "title": "As Of Date",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "loan_id",
+                "as_of_date"
+              ]
+            },
+            "_meta": {
+              "tool_configuration": {
+                "type": "mcp",
+                "server_label": "loans",
+                "server_url": "https://fsitbx0606tk-loans-mcp.whitemoss-9b71305a.swedencentral.azurecontainerapps.io/mcp",
+                "require_approval": "never",
+                "tool_configs": {
+                  "get_loan_balance": {
+                    "additional_search_text": "loans___get_loan_balance get_loan_balance loan balance current loan balance outstanding balance loan id as of date"
+                  },
+                  "get_mortgage_affordability": {
+                    "additional_search_text": "mortgage affordability borrowing capacity annual income monthly debt home loan"
+                  }
+                }
+              },
+              "com.microsoft.foundry/tool_visibility": "auto_pinned"
+            }
+          },
+          {
+            "name": "loans___compute_ltv_ratio",
+            "description": "Compute loan-to-value ratio.",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "loan_id": {
+                  "title": "Loan Id",
+                  "type": "string"
+                },
+                "balance": {
+                  "title": "Balance",
+                  "type": "number"
+                },
+                "collateral_value": {
+                  "title": "Collateral Value",
+                  "type": "number"
+                }
+              },
+              "required": [
+                "loan_id",
+                "balance",
+                "collateral_value"
+              ]
+            },
+            "_meta": {
+              "tool_configuration": {
+                "type": "mcp",
+                "server_label": "loans",
+                "server_url": "https://fsitbx0606tk-loans-mcp.whitemoss-9b71305a.swedencentral.azurecontainerapps.io/mcp",
+                "require_approval": "never",
+                "tool_configs": {
+                  "get_loan_balance": {
+                    "additional_search_text": "loans___get_loan_balance get_loan_balance loan balance current loan balance outstanding balance loan id as of date"
+                  },
+                  "get_mortgage_affordability": {
+                    "additional_search_text": "mortgage affordability borrowing capacity annual income monthly debt home loan"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "name": "loans___calculate_payoff_quote",
+            "description": "Calculate mocked loan payoff quote.",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "loan_id": {
+                  "title": "Loan Id",
+                  "type": "string"
+                },
+                "payoff_date": {
+                  "title": "Payoff Date",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "loan_id",
+                "payoff_date"
+              ]
+            },
+            "_meta": {
+              "tool_configuration": {
+                "type": "mcp",
+                "server_label": "loans",
+                "server_url": "https://fsitbx0606tk-loans-mcp.whitemoss-9b71305a.swedencentral.azurecontainerapps.io/mcp",
+                "require_approval": "never",
+                "tool_configs": {
+                  "get_loan_balance": {
+                    "additional_search_text": "loans___get_loan_balance get_loan_balance loan balance current loan balance outstanding balance loan id as of date"
+                  },
+                  "get_mortgage_affordability": {
+                    "additional_search_text": "mortgage affordability borrowing capacity annual income monthly debt home loan"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "name": "loans___estimate_auto_loan_residual",
+            "description": "Estimate residual value for an auto loan.",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "customer_id": {
+                  "title": "Customer Id",
+                  "type": "string"
+                },
+                "reference_id": {
+                  "title": "Reference Id",
+                  "type": "string"
+                },
+                "amount": {
+                  "default": 1000,
+                  "title": "Amount",
+                  "type": "number"
+                }
+              },
+              "required": [
+                "customer_id",
+                "reference_id"
+              ]
+            },
+            "_meta": {
+              "tool_configuration": {
+                "type": "mcp",
+                "server_label": "loans",
+                "server_url": "https://fsitbx0606tk-loans-mcp.whitemoss-9b71305a.swedencentral.azurecontainerapps.io/mcp",
+                "require_approval": "never",
+                "tool_configs": {
+                  "get_loan_balance": {
+                    "additional_search_text": "loans___get_loan_balance get_loan_balance loan balance current loan balance outstanding balance loan id as of date"
+                  },
+                  "get_mortgage_affordability": {
+                    "additional_search_text": "mortgage affordability borrowing capacity annual income monthly debt home loan"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "name": "loans___list_required_loan_documents",
+            "description": "List required documents for a loan product.",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "product_type": {
+                  "title": "Product Type",
+                  "type": "string"
+                },
+                "customer_segment": {
+                  "title": "Customer Segment",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "product_type",
+                "customer_segment"
+              ]
+            },
+            "_meta": {
+              "tool_configuration": {
+                "type": "mcp",
+                "server_label": "loans",
+                "server_url": "https://fsitbx0606tk-loans-mcp.whitemoss-9b71305a.swedencentral.azurecontainerapps.io/mcp",
+                "require_approval": "never",
+                "tool_configs": {
+                  "get_loan_balance": {
+                    "additional_search_text": "loans___get_loan_balance get_loan_balance loan balance current loan balance outstanding balance loan id as of date"
+                  },
+                  "get_mortgage_affordability": {
+                    "additional_search_text": "mortgage affordability borrowing capacity annual income monthly debt home loan"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "mortgage_affordability": {
+      "query": "mortgage affordability annual income monthly debt",
+      "limit": 5,
+      "result": {
+        "tools": [
+          {
+            "name": "investments___screen_bond_ladder",
+            "description": "Screen a bond ladder for maturity and income targets.",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "customer_id": {
+                  "title": "Customer Id",
+                  "type": "string"
+                },
+                "portfolio_id": {
+                  "title": "Portfolio Id",
+                  "type": "string"
+                },
+                "amount": {
+                  "default": 1000,
+                  "title": "Amount",
+                  "type": "number"
+                }
+              },
+              "required": [
+                "customer_id",
+                "portfolio_id"
+              ]
+            },
+            "_meta": {
+              "tool_configuration": {
+                "type": "mcp",
+                "server_label": "investments",
+                "server_url": "https://fsitbx0606tk-investments-mcp.whitemoss-9b71305a.swedencentral.azurecontainerapps.io/mcp",
+                "require_approval": "never",
+                "tool_configs": {
+                  "get_portfolio_summary": {
+                    "additional_search_text": "investments___get_portfolio_summary get_portfolio_summary portfolio summary market value portfolio valuation total value customer portfolio"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "name": "loans___review_appraisal_gap",
+            "description": "Review appraisal gap risk for a mortgage application.",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "customer_id": {
+                  "title": "Customer Id",
+                  "type": "string"
+                },
+                "reference_id": {
+                  "title": "Reference Id",
+                  "type": "string"
+                },
+                "amount": {
+                  "default": 1000,
+                  "title": "Amount",
+                  "type": "number"
+                }
+              },
+              "required": [
+                "customer_id",
+                "reference_id"
+              ]
+            },
+            "_meta": {
+              "tool_configuration": {
+                "type": "mcp",
+                "server_label": "loans",
+                "server_url": "https://fsitbx0606tk-loans-mcp.whitemoss-9b71305a.swedencentral.azurecontainerapps.io/mcp",
+                "require_approval": "never",
+                "tool_configs": {
+                  "get_loan_balance": {
+                    "additional_search_text": "loans___get_loan_balance get_loan_balance loan balance current loan balance outstanding balance loan id as of date"
+                  },
+                  "get_mortgage_affordability": {
+                    "additional_search_text": "mortgage affordability borrowing capacity annual income monthly debt home loan"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "name": "loans___review_debt_consolidation_fit",
+            "description": "Review whether debt consolidation loan is suitable.",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "customer_id": {
+                  "title": "Customer Id",
+                  "type": "string"
+                },
+                "reference_id": {
+                  "title": "Reference Id",
+                  "type": "string"
+                },
+                "amount": {
+                  "default": 1000,
+                  "title": "Amount",
+                  "type": "number"
+                }
+              },
+              "required": [
+                "customer_id",
+                "reference_id"
+              ]
+            },
+            "_meta": {
+              "tool_configuration": {
+                "type": "mcp",
+                "server_label": "loans",
+                "server_url": "https://fsitbx0606tk-loans-mcp.whitemoss-9b71305a.swedencentral.azurecontainerapps.io/mcp",
+                "require_approval": "never",
+                "tool_configs": {
+                  "get_loan_balance": {
+                    "additional_search_text": "loans___get_loan_balance get_loan_balance loan balance current loan balance outstanding balance loan id as of date"
+                  },
+                  "get_mortgage_affordability": {
+                    "additional_search_text": "mortgage affordability borrowing capacity annual income monthly debt home loan"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "name": "loans___verify_income_document",
+            "description": "Mock verification of income evidence.",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "customer_id": {
+                  "title": "Customer Id",
+                  "type": "string"
+                },
+                "document_type": {
+                  "title": "Document Type",
+                  "type": "string"
+                },
+                "monthly_income": {
+                  "title": "Monthly Income",
+                  "type": "number"
+                }
+              },
+              "required": [
+                "customer_id",
+                "document_type",
+                "monthly_income"
+              ]
+            },
+            "_meta": {
+              "tool_configuration": {
+                "type": "mcp",
+                "server_label": "loans",
+                "server_url": "https://fsitbx0606tk-loans-mcp.whitemoss-9b71305a.swedencentral.azurecontainerapps.io/mcp",
+                "require_approval": "never",
+                "tool_configs": {
+                  "get_loan_balance": {
+                    "additional_search_text": "loans___get_loan_balance get_loan_balance loan balance current loan balance outstanding balance loan id as of date"
+                  },
+                  "get_mortgage_affordability": {
+                    "additional_search_text": "mortgage affordability borrowing capacity annual income monthly debt home loan"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "name": "loans___get_mortgage_affordability",
+            "description": "Estimate mortgage affordability for a customer.\n\n    Args:\n        customer_id: Customer identifier.\n        annual_income: Gross yearly income.\n        monthly_debt: Existing monthly debt payments.\n    ",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "customer_id": {
+                  "title": "Customer Id",
+                  "type": "string"
+                },
+                "annual_income": {
+                  "title": "Annual Income",
+                  "type": "number"
+                },
+                "monthly_debt": {
+                  "title": "Monthly Debt",
+                  "type": "number"
+                }
+              },
+              "required": [
+                "customer_id",
+                "annual_income",
+                "monthly_debt"
+              ]
+            },
+            "_meta": {
+              "tool_configuration": {
+                "type": "mcp",
+                "server_label": "loans",
+                "server_url": "https://fsitbx0606tk-loans-mcp.whitemoss-9b71305a.swedencentral.azurecontainerapps.io/mcp",
+                "require_approval": "never",
+                "tool_configs": {
+                  "get_loan_balance": {
+                    "additional_search_text": "loans___get_loan_balance get_loan_balance loan balance current loan balance outstanding balance loan id as of date"
+                  },
+                  "get_mortgage_affordability": {
+                    "additional_search_text": "mortgage affordability borrowing capacity annual income monthly debt home loan"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "portfolio_summary": {
+      "query": "portfolio summary market value customer portfolio",
+      "limit": 5,
+      "result": {
+        "tools": [
+          {
+            "name": "investments___get_portfolio_summary",
+            "description": "Return mocked portfolio summary.",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "customer_id": {
+                  "title": "Customer Id",
+                  "type": "string"
+                },
+                "portfolio_id": {
+                  "title": "Portfolio Id",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "customer_id",
+                "portfolio_id"
+              ]
+            },
+            "_meta": {
+              "tool_configuration": {
+                "type": "mcp",
+                "server_label": "investments",
+                "server_url": "https://fsitbx0606tk-investments-mcp.whitemoss-9b71305a.swedencentral.azurecontainerapps.io/mcp",
+                "require_approval": "never",
+                "tool_configs": {
+                  "get_portfolio_summary": {
+                    "additional_search_text": "investments___get_portfolio_summary get_portfolio_summary portfolio summary market value portfolio valuation total value customer portfolio"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "name": "investments___review_portfolio_turnover",
+            "description": "Review portfolio turnover.",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "customer_id": {
+                  "title": "Customer Id",
+                  "type": "string"
+                },
+                "portfolio_id": {
+                  "title": "Portfolio Id",
+                  "type": "string"
+                },
+                "amount": {
+                  "default": 1000,
+                  "title": "Amount",
+                  "type": "number"
+                }
+              },
+              "required": [
+                "customer_id",
+                "portfolio_id"
+              ]
+            },
+            "_meta": {
+              "tool_configuration": {
+                "type": "mcp",
+                "server_label": "investments",
+                "server_url": "https://fsitbx0606tk-investments-mcp.whitemoss-9b71305a.swedencentral.azurecontainerapps.io/mcp",
+                "require_approval": "never",
+                "tool_configs": {
+                  "get_portfolio_summary": {
+                    "additional_search_text": "investments___get_portfolio_summary get_portfolio_summary portfolio summary market value portfolio valuation total value customer portfolio"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "name": "investments___calculate_portfolio_beta",
+            "description": "Calculate mocked portfolio beta.",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "customer_id": {
+                  "title": "Customer Id",
+                  "type": "string"
+                },
+                "portfolio_id": {
+                  "title": "Portfolio Id",
+                  "type": "string"
+                },
+                "amount": {
+                  "default": 1000,
+                  "title": "Amount",
+                  "type": "number"
+                }
+              },
+              "required": [
+                "customer_id",
+                "portfolio_id"
+              ]
+            },
+            "_meta": {
+              "tool_configuration": {
+                "type": "mcp",
+                "server_label": "investments",
+                "server_url": "https://fsitbx0606tk-investments-mcp.whitemoss-9b71305a.swedencentral.azurecontainerapps.io/mcp",
+                "require_approval": "never",
+                "tool_configs": {
+                  "get_portfolio_summary": {
+                    "additional_search_text": "investments___get_portfolio_summary get_portfolio_summary portfolio summary market value portfolio valuation total value customer portfolio"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "name": "investments___estimate_portfolio_var",
+            "description": "Estimate mocked portfolio value at risk.",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "portfolio_id": {
+                  "title": "Portfolio Id",
+                  "type": "string"
+                },
+                "confidence_percent": {
+                  "title": "Confidence Percent",
+                  "type": "number"
+                },
+                "horizon_days": {
+                  "title": "Horizon Days",
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "portfolio_id",
+                "confidence_percent",
+                "horizon_days"
+              ]
+            },
+            "_meta": {
+              "tool_configuration": {
+                "type": "mcp",
+                "server_label": "investments",
+                "server_url": "https://fsitbx0606tk-investments-mcp.whitemoss-9b71305a.swedencentral.azurecontainerapps.io/mcp",
+                "require_approval": "never",
+                "tool_configs": {
+                  "get_portfolio_summary": {
+                    "additional_search_text": "investments___get_portfolio_summary get_portfolio_summary portfolio summary market value portfolio valuation total value customer portfolio"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "name": "investments___get_model_portfolio",
+            "description": "Return mocked model portfolio.",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "model_name": {
+                  "title": "Model Name",
+                  "type": "string"
+                },
+                "risk_level": {
+                  "title": "Risk Level",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "model_name",
+                "risk_level"
+              ]
+            },
+            "_meta": {
+              "tool_configuration": {
+                "type": "mcp",
+                "server_label": "investments",
+                "server_url": "https://fsitbx0606tk-investments-mcp.whitemoss-9b71305a.swedencentral.azurecontainerapps.io/mcp",
+                "require_approval": "never",
+                "tool_configs": {
+                  "get_portfolio_summary": {
+                    "additional_search_text": "investments___get_portfolio_summary get_portfolio_summary portfolio summary market value portfolio valuation total value customer portfolio"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "account_kyc": {
+      "query": "current account KYC status customer",
+      "limit": 5,
+      "result": {
+        "tools": [
+          {
+            "name": "accounts___get_account_balance",
+            "description": "Return mocked current account balance.",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "account_id": {
+                  "title": "Account Id",
+                  "type": "string"
+                },
+                "as_of_date": {
+                  "title": "As Of Date",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "account_id",
+                "as_of_date"
+              ]
+            },
+            "_meta": {
+              "tool_configuration": {
+                "type": "mcp",
+                "server_label": "accounts",
+                "server_url": "https://fsitbx0606tk-accounts-mcp.whitemoss-9b71305a.swedencentral.azurecontainerapps.io/mcp",
+                "require_approval": "never",
+                "tool_configs": {
+                  "check_account_kyc_status": {
+                    "additional_search_text": "accounts___check_account_kyc_status check_account_kyc_status current account KYC status compliance know your customer customer identity review"
+                  },
+                  "get_account_balance": {
+                    "additional_search_text": "current account balance available balance checking account cash account"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "name": "loans___get_loan_balance",
+            "description": "Return current mocked balance for a loan.",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "loan_id": {
+                  "title": "Loan Id",
+                  "type": "string"
+                },
+                "as_of_date": {
+                  "title": "As Of Date",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "loan_id",
+                "as_of_date"
+              ]
+            },
+            "_meta": {
+              "tool_configuration": {
+                "type": "mcp",
+                "server_label": "loans",
+                "server_url": "https://fsitbx0606tk-loans-mcp.whitemoss-9b71305a.swedencentral.azurecontainerapps.io/mcp",
+                "require_approval": "never",
+                "tool_configs": {
+                  "get_loan_balance": {
+                    "additional_search_text": "loans___get_loan_balance get_loan_balance loan balance current loan balance outstanding balance loan id as of date"
+                  },
+                  "get_mortgage_affordability": {
+                    "additional_search_text": "mortgage affordability borrowing capacity annual income monthly debt home loan"
+                  }
+                }
+              },
+              "com.microsoft.foundry/tool_visibility": "auto_pinned"
+            }
+          },
+          {
+            "name": "accounts___check_account_kyc_status",
+            "description": "Return KYC status for current account servicing.",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "customer_id": {
+                  "title": "Customer Id",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "customer_id"
+              ]
+            },
+            "_meta": {
+              "tool_configuration": {
+                "type": "mcp",
+                "server_label": "accounts",
+                "server_url": "https://fsitbx0606tk-accounts-mcp.whitemoss-9b71305a.swedencentral.azurecontainerapps.io/mcp",
+                "require_approval": "never",
+                "tool_configs": {
+                  "check_account_kyc_status": {
+                    "additional_search_text": "accounts___check_account_kyc_status check_account_kyc_status current account KYC status compliance know your customer customer identity review"
+                  },
+                  "get_account_balance": {
+                    "additional_search_text": "current account balance available balance checking account cash account"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "name": "accounts___summarize_monthly_statement",
+            "description": "Summarize monthly current account statement.",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "customer_id": {
+                  "title": "Customer Id",
+                  "type": "string"
+                },
+                "account_id": {
+                  "title": "Account Id",
+                  "type": "string"
+                },
+                "amount": {
+                  "default": 1000,
+                  "title": "Amount",
+                  "type": "number"
+                }
+              },
+              "required": [
+                "customer_id",
+                "account_id"
+              ]
+            },
+            "_meta": {
+              "tool_configuration": {
+                "type": "mcp",
+                "server_label": "accounts",
+                "server_url": "https://fsitbx0606tk-accounts-mcp.whitemoss-9b71305a.swedencentral.azurecontainerapps.io/mcp",
+                "require_approval": "never",
+                "tool_configs": {
+                  "check_account_kyc_status": {
+                    "additional_search_text": "accounts___check_account_kyc_status check_account_kyc_status current account KYC status compliance know your customer customer identity review"
+                  },
+                  "get_account_balance": {
+                    "additional_search_text": "current account balance available balance checking account cash account"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "name": "accounts___review_payment_limit",
+            "description": "Review payment limit for a current account.",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "customer_id": {
+                  "title": "Customer Id",
+                  "type": "string"
+                },
+                "account_id": {
+                  "title": "Account Id",
+                  "type": "string"
+                },
+                "amount": {
+                  "default": 1000,
+                  "title": "Amount",
+                  "type": "number"
+                }
+              },
+              "required": [
+                "customer_id",
+                "account_id"
+              ]
+            },
+            "_meta": {
+              "tool_configuration": {
+                "type": "mcp",
+                "server_label": "accounts",
+                "server_url": "https://fsitbx0606tk-accounts-mcp.whitemoss-9b71305a.swedencentral.azurecontainerapps.io/mcp",
+                "require_approval": "never",
+                "tool_configs": {
+                  "check_account_kyc_status": {
+                    "additional_search_text": "accounts___check_account_kyc_status check_account_kyc_status current account KYC status compliance know your customer customer identity review"
+                  },
+                  "get_account_balance": {
+                    "additional_search_text": "current account balance available balance checking account cash account"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "fsi-autopin-warm-cross-domain-three-tools-1780851948": {
+    "loan_balance": {
+      "query": "loan current balance as of date get loan balance tool",
+      "limit": 5,
+      "result": {
+        "tools": [
+          {
+            "name": "loans___get_loan_balance",
+            "description": "Return current mocked balance for a loan.",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "loan_id": {
+                  "title": "Loan Id",
+                  "type": "string"
+                },
+                "as_of_date": {
+                  "title": "As Of Date",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "loan_id",
+                "as_of_date"
+              ]
+            },
+            "_meta": {
+              "tool_configuration": {
+                "type": "mcp",
+                "server_label": "loans",
+                "server_url": "https://fsitbx0606tk-loans-mcp.whitemoss-9b71305a.swedencentral.azurecontainerapps.io/mcp",
+                "require_approval": "never",
+                "tool_configs": {
+                  "get_loan_balance": {
+                    "additional_search_text": "loans___get_loan_balance get_loan_balance loan balance current loan balance outstanding balance loan id as of date"
+                  },
+                  "get_mortgage_affordability": {
+                    "additional_search_text": "mortgage affordability borrowing capacity annual income monthly debt home loan"
+                  }
+                }
+              },
+              "com.microsoft.foundry/tool_visibility": "auto_pinned"
+            }
+          },
+          {
+            "name": "loans___compute_ltv_ratio",
+            "description": "Compute loan-to-value ratio.",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "loan_id": {
+                  "title": "Loan Id",
+                  "type": "string"
+                },
+                "balance": {
+                  "title": "Balance",
+                  "type": "number"
+                },
+                "collateral_value": {
+                  "title": "Collateral Value",
+                  "type": "number"
+                }
+              },
+              "required": [
+                "loan_id",
+                "balance",
+                "collateral_value"
+              ]
+            },
+            "_meta": {
+              "tool_configuration": {
+                "type": "mcp",
+                "server_label": "loans",
+                "server_url": "https://fsitbx0606tk-loans-mcp.whitemoss-9b71305a.swedencentral.azurecontainerapps.io/mcp",
+                "require_approval": "never",
+                "tool_configs": {
+                  "get_loan_balance": {
+                    "additional_search_text": "loans___get_loan_balance get_loan_balance loan balance current loan balance outstanding balance loan id as of date"
+                  },
+                  "get_mortgage_affordability": {
+                    "additional_search_text": "mortgage affordability borrowing capacity annual income monthly debt home loan"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "name": "loans___calculate_payoff_quote",
+            "description": "Calculate mocked loan payoff quote.",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "loan_id": {
+                  "title": "Loan Id",
+                  "type": "string"
+                },
+                "payoff_date": {
+                  "title": "Payoff Date",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "loan_id",
+                "payoff_date"
+              ]
+            },
+            "_meta": {
+              "tool_configuration": {
+                "type": "mcp",
+                "server_label": "loans",
+                "server_url": "https://fsitbx0606tk-loans-mcp.whitemoss-9b71305a.swedencentral.azurecontainerapps.io/mcp",
+                "require_approval": "never",
+                "tool_configs": {
+                  "get_loan_balance": {
+                    "additional_search_text": "loans___get_loan_balance get_loan_balance loan balance current loan balance outstanding balance loan id as of date"
+                  },
+                  "get_mortgage_affordability": {
+                    "additional_search_text": "mortgage affordability borrowing capacity annual income monthly debt home loan"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "name": "loans___estimate_auto_loan_residual",
+            "description": "Estimate residual value for an auto loan.",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "customer_id": {
+                  "title": "Customer Id",
+                  "type": "string"
+                },
+                "reference_id": {
+                  "title": "Reference Id",
+                  "type": "string"
+                },
+                "amount": {
+                  "default": 1000,
+                  "title": "Amount",
+                  "type": "number"
+                }
+              },
+              "required": [
+                "customer_id",
+                "reference_id"
+              ]
+            },
+            "_meta": {
+              "tool_configuration": {
+                "type": "mcp",
+                "server_label": "loans",
+                "server_url": "https://fsitbx0606tk-loans-mcp.whitemoss-9b71305a.swedencentral.azurecontainerapps.io/mcp",
+                "require_approval": "never",
+                "tool_configs": {
+                  "get_loan_balance": {
+                    "additional_search_text": "loans___get_loan_balance get_loan_balance loan balance current loan balance outstanding balance loan id as of date"
+                  },
+                  "get_mortgage_affordability": {
+                    "additional_search_text": "mortgage affordability borrowing capacity annual income monthly debt home loan"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "name": "loans___list_required_loan_documents",
+            "description": "List required documents for a loan product.",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "product_type": {
+                  "title": "Product Type",
+                  "type": "string"
+                },
+                "customer_segment": {
+                  "title": "Customer Segment",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "product_type",
+                "customer_segment"
+              ]
+            },
+            "_meta": {
+              "tool_configuration": {
+                "type": "mcp",
+                "server_label": "loans",
+                "server_url": "https://fsitbx0606tk-loans-mcp.whitemoss-9b71305a.swedencentral.azurecontainerapps.io/mcp",
+                "require_approval": "never",
+                "tool_configs": {
+                  "get_loan_balance": {
+                    "additional_search_text": "loans___get_loan_balance get_loan_balance loan balance current loan balance outstanding balance loan id as of date"
+                  },
+                  "get_mortgage_affordability": {
+                    "additional_search_text": "mortgage affordability borrowing capacity annual income monthly debt home loan"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "mortgage_affordability": {
+      "query": "mortgage affordability annual income monthly debt",
+      "limit": 5,
+      "result": {
+        "tools": [
+          {
+            "name": "investments___estimate_reinvestment_income",
+            "description": "Estimate reinvestment income.",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "customer_id": {
+                  "title": "Customer Id",
+                  "type": "string"
+                },
+                "portfolio_id": {
+                  "title": "Portfolio Id",
+                  "type": "string"
+                },
+                "amount": {
+                  "default": 1000,
+                  "title": "Amount",
+                  "type": "number"
+                }
+              },
+              "required": [
+                "customer_id",
+                "portfolio_id"
+              ]
+            },
+            "_meta": {
+              "tool_configuration": {
+                "type": "mcp",
+                "server_label": "investments",
+                "server_url": "https://fsitbx0606tk-investments-mcp.whitemoss-9b71305a.swedencentral.azurecontainerapps.io/mcp",
+                "require_approval": "never",
+                "tool_configs": {
+                  "get_portfolio_summary": {
+                    "additional_search_text": "investments___get_portfolio_summary get_portfolio_summary portfolio summary market value portfolio valuation total value customer portfolio"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "name": "loans___verify_income_document",
+            "description": "Mock verification of income evidence.",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "customer_id": {
+                  "title": "Customer Id",
+                  "type": "string"
+                },
+                "document_type": {
+                  "title": "Document Type",
+                  "type": "string"
+                },
+                "monthly_income": {
+                  "title": "Monthly Income",
+                  "type": "number"
+                }
+              },
+              "required": [
+                "customer_id",
+                "document_type",
+                "monthly_income"
+              ]
+            },
+            "_meta": {
+              "tool_configuration": {
+                "type": "mcp",
+                "server_label": "loans",
+                "server_url": "https://fsitbx0606tk-loans-mcp.whitemoss-9b71305a.swedencentral.azurecontainerapps.io/mcp",
+                "require_approval": "never",
+                "tool_configs": {
+                  "get_loan_balance": {
+                    "additional_search_text": "loans___get_loan_balance get_loan_balance loan balance current loan balance outstanding balance loan id as of date"
+                  },
+                  "get_mortgage_affordability": {
+                    "additional_search_text": "mortgage affordability borrowing capacity annual income monthly debt home loan"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "name": "loans___get_mortgage_affordability",
+            "description": "Estimate mortgage affordability for a customer.\n\n    Args:\n        customer_id: Customer identifier.\n        annual_income: Gross yearly income.\n        monthly_debt: Existing monthly debt payments.\n    ",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "customer_id": {
+                  "title": "Customer Id",
+                  "type": "string"
+                },
+                "annual_income": {
+                  "title": "Annual Income",
+                  "type": "number"
+                },
+                "monthly_debt": {
+                  "title": "Monthly Debt",
+                  "type": "number"
+                }
+              },
+              "required": [
+                "customer_id",
+                "annual_income",
+                "monthly_debt"
+              ]
+            },
+            "_meta": {
+              "tool_configuration": {
+                "type": "mcp",
+                "server_label": "loans",
+                "server_url": "https://fsitbx0606tk-loans-mcp.whitemoss-9b71305a.swedencentral.azurecontainerapps.io/mcp",
+                "require_approval": "never",
+                "tool_configs": {
+                  "get_loan_balance": {
+                    "additional_search_text": "loans___get_loan_balance get_loan_balance loan balance current loan balance outstanding balance loan id as of date"
+                  },
+                  "get_mortgage_affordability": {
+                    "additional_search_text": "mortgage affordability borrowing capacity annual income monthly debt home loan"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "name": "loans___calculate_apr_from_fees",
+            "description": "Calculate annual percentage rate impact from fees.",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "customer_id": {
+                  "title": "Customer Id",
+                  "type": "string"
+                },
+                "reference_id": {
+                  "title": "Reference Id",
+                  "type": "string"
+                },
+                "amount": {
+                  "default": 1000,
+                  "title": "Amount",
+                  "type": "number"
+                }
+              },
+              "required": [
+                "customer_id",
+                "reference_id"
+              ]
+            },
+            "_meta": {
+              "tool_configuration": {
+                "type": "mcp",
+                "server_label": "loans",
+                "server_url": "https://fsitbx0606tk-loans-mcp.whitemoss-9b71305a.swedencentral.azurecontainerapps.io/mcp",
+                "require_approval": "never",
+                "tool_configs": {
+                  "get_loan_balance": {
+                    "additional_search_text": "loans___get_loan_balance get_loan_balance loan balance current loan balance outstanding balance loan id as of date"
+                  },
+                  "get_mortgage_affordability": {
+                    "additional_search_text": "mortgage affordability borrowing capacity annual income monthly debt home loan"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "name": "loans___assess_green_mortgage_discount",
+            "description": "Assess eligibility for green mortgage discount.",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "customer_id": {
+                  "title": "Customer Id",
+                  "type": "string"
+                },
+                "reference_id": {
+                  "title": "Reference Id",
+                  "type": "string"
+                },
+                "amount": {
+                  "default": 1000,
+                  "title": "Amount",
+                  "type": "number"
+                }
+              },
+              "required": [
+                "customer_id",
+                "reference_id"
+              ]
+            },
+            "_meta": {
+              "tool_configuration": {
+                "type": "mcp",
+                "server_label": "loans",
+                "server_url": "https://fsitbx0606tk-loans-mcp.whitemoss-9b71305a.swedencentral.azurecontainerapps.io/mcp",
+                "require_approval": "never",
+                "tool_configs": {
+                  "get_loan_balance": {
+                    "additional_search_text": "loans___get_loan_balance get_loan_balance loan balance current loan balance outstanding balance loan id as of date"
+                  },
+                  "get_mortgage_affordability": {
+                    "additional_search_text": "mortgage affordability borrowing capacity annual income monthly debt home loan"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "portfolio_summary": {
+      "query": "portfolio summary market value customer portfolio",
+      "limit": 5,
+      "result": {
+        "tools": [
+          {
+            "name": "investments___get_portfolio_summary",
+            "description": "Return mocked portfolio summary.",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "customer_id": {
+                  "title": "Customer Id",
+                  "type": "string"
+                },
+                "portfolio_id": {
+                  "title": "Portfolio Id",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "customer_id",
+                "portfolio_id"
+              ]
+            },
+            "_meta": {
+              "tool_configuration": {
+                "type": "mcp",
+                "server_label": "investments",
+                "server_url": "https://fsitbx0606tk-investments-mcp.whitemoss-9b71305a.swedencentral.azurecontainerapps.io/mcp",
+                "require_approval": "never",
+                "tool_configs": {
+                  "get_portfolio_summary": {
+                    "additional_search_text": "investments___get_portfolio_summary get_portfolio_summary portfolio summary market value portfolio valuation total value customer portfolio"
+                  }
+                }
+              },
+              "com.microsoft.foundry/tool_visibility": "auto_pinned"
+            }
+          },
+          {
+            "name": "investments___review_portfolio_turnover",
+            "description": "Review portfolio turnover.",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "customer_id": {
+                  "title": "Customer Id",
+                  "type": "string"
+                },
+                "portfolio_id": {
+                  "title": "Portfolio Id",
+                  "type": "string"
+                },
+                "amount": {
+                  "default": 1000,
+                  "title": "Amount",
+                  "type": "number"
+                }
+              },
+              "required": [
+                "customer_id",
+                "portfolio_id"
+              ]
+            },
+            "_meta": {
+              "tool_configuration": {
+                "type": "mcp",
+                "server_label": "investments",
+                "server_url": "https://fsitbx0606tk-investments-mcp.whitemoss-9b71305a.swedencentral.azurecontainerapps.io/mcp",
+                "require_approval": "never",
+                "tool_configs": {
+                  "get_portfolio_summary": {
+                    "additional_search_text": "investments___get_portfolio_summary get_portfolio_summary portfolio summary market value portfolio valuation total value customer portfolio"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "name": "investments___calculate_portfolio_beta",
+            "description": "Calculate mocked portfolio beta.",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "customer_id": {
+                  "title": "Customer Id",
+                  "type": "string"
+                },
+                "portfolio_id": {
+                  "title": "Portfolio Id",
+                  "type": "string"
+                },
+                "amount": {
+                  "default": 1000,
+                  "title": "Amount",
+                  "type": "number"
+                }
+              },
+              "required": [
+                "customer_id",
+                "portfolio_id"
+              ]
+            },
+            "_meta": {
+              "tool_configuration": {
+                "type": "mcp",
+                "server_label": "investments",
+                "server_url": "https://fsitbx0606tk-investments-mcp.whitemoss-9b71305a.swedencentral.azurecontainerapps.io/mcp",
+                "require_approval": "never",
+                "tool_configs": {
+                  "get_portfolio_summary": {
+                    "additional_search_text": "investments___get_portfolio_summary get_portfolio_summary portfolio summary market value portfolio valuation total value customer portfolio"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "name": "investments___estimate_portfolio_var",
+            "description": "Estimate mocked portfolio value at risk.",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "portfolio_id": {
+                  "title": "Portfolio Id",
+                  "type": "string"
+                },
+                "confidence_percent": {
+                  "title": "Confidence Percent",
+                  "type": "number"
+                },
+                "horizon_days": {
+                  "title": "Horizon Days",
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "portfolio_id",
+                "confidence_percent",
+                "horizon_days"
+              ]
+            },
+            "_meta": {
+              "tool_configuration": {
+                "type": "mcp",
+                "server_label": "investments",
+                "server_url": "https://fsitbx0606tk-investments-mcp.whitemoss-9b71305a.swedencentral.azurecontainerapps.io/mcp",
+                "require_approval": "never",
+                "tool_configs": {
+                  "get_portfolio_summary": {
+                    "additional_search_text": "investments___get_portfolio_summary get_portfolio_summary portfolio summary market value portfolio valuation total value customer portfolio"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "name": "investments___get_model_portfolio",
+            "description": "Return mocked model portfolio.",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "model_name": {
+                  "title": "Model Name",
+                  "type": "string"
+                },
+                "risk_level": {
+                  "title": "Risk Level",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "model_name",
+                "risk_level"
+              ]
+            },
+            "_meta": {
+              "tool_configuration": {
+                "type": "mcp",
+                "server_label": "investments",
+                "server_url": "https://fsitbx0606tk-investments-mcp.whitemoss-9b71305a.swedencentral.azurecontainerapps.io/mcp",
+                "require_approval": "never",
+                "tool_configs": {
+                  "get_portfolio_summary": {
+                    "additional_search_text": "investments___get_portfolio_summary get_portfolio_summary portfolio summary market value portfolio valuation total value customer portfolio"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "account_kyc": {
+      "query": "current account KYC status customer",
+      "limit": 5,
+      "result": {
+        "tools": [
+          {
+            "name": "accounts___get_account_balance",
+            "description": "Return mocked current account balance.",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "account_id": {
+                  "title": "Account Id",
+                  "type": "string"
+                },
+                "as_of_date": {
+                  "title": "As Of Date",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "account_id",
+                "as_of_date"
+              ]
+            },
+            "_meta": {
+              "tool_configuration": {
+                "type": "mcp",
+                "server_label": "accounts",
+                "server_url": "https://fsitbx0606tk-accounts-mcp.whitemoss-9b71305a.swedencentral.azurecontainerapps.io/mcp",
+                "require_approval": "never",
+                "tool_configs": {
+                  "check_account_kyc_status": {
+                    "additional_search_text": "accounts___check_account_kyc_status check_account_kyc_status current account KYC status compliance know your customer customer identity review"
+                  },
+                  "get_account_balance": {
+                    "additional_search_text": "current account balance available balance checking account cash account"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "name": "loans___get_loan_balance",
+            "description": "Return current mocked balance for a loan.",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "loan_id": {
+                  "title": "Loan Id",
+                  "type": "string"
+                },
+                "as_of_date": {
+                  "title": "As Of Date",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "loan_id",
+                "as_of_date"
+              ]
+            },
+            "_meta": {
+              "tool_configuration": {
+                "type": "mcp",
+                "server_label": "loans",
+                "server_url": "https://fsitbx0606tk-loans-mcp.whitemoss-9b71305a.swedencentral.azurecontainerapps.io/mcp",
+                "require_approval": "never",
+                "tool_configs": {
+                  "get_loan_balance": {
+                    "additional_search_text": "loans___get_loan_balance get_loan_balance loan balance current loan balance outstanding balance loan id as of date"
+                  },
+                  "get_mortgage_affordability": {
+                    "additional_search_text": "mortgage affordability borrowing capacity annual income monthly debt home loan"
+                  }
+                }
+              },
+              "com.microsoft.foundry/tool_visibility": "auto_pinned"
+            }
+          },
+          {
+            "name": "accounts___check_account_kyc_status",
+            "description": "Return KYC status for current account servicing.",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "customer_id": {
+                  "title": "Customer Id",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "customer_id"
+              ]
+            },
+            "_meta": {
+              "tool_configuration": {
+                "type": "mcp",
+                "server_label": "accounts",
+                "server_url": "https://fsitbx0606tk-accounts-mcp.whitemoss-9b71305a.swedencentral.azurecontainerapps.io/mcp",
+                "require_approval": "never",
+                "tool_configs": {
+                  "check_account_kyc_status": {
+                    "additional_search_text": "accounts___check_account_kyc_status check_account_kyc_status current account KYC status compliance know your customer customer identity review"
+                  },
+                  "get_account_balance": {
+                    "additional_search_text": "current account balance available balance checking account cash account"
+                  }
+                }
+              },
+              "com.microsoft.foundry/tool_visibility": "auto_pinned"
+            }
+          },
+          {
+            "name": "accounts___review_payment_limit",
+            "description": "Review payment limit for a current account.",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "customer_id": {
+                  "title": "Customer Id",
+                  "type": "string"
+                },
+                "account_id": {
+                  "title": "Account Id",
+                  "type": "string"
+                },
+                "amount": {
+                  "default": 1000,
+                  "title": "Amount",
+                  "type": "number"
+                }
+              },
+              "required": [
+                "customer_id",
+                "account_id"
+              ]
+            },
+            "_meta": {
+              "tool_configuration": {
+                "type": "mcp",
+                "server_label": "accounts",
+                "server_url": "https://fsitbx0606tk-accounts-mcp.whitemoss-9b71305a.swedencentral.azurecontainerapps.io/mcp",
+                "require_approval": "never",
+                "tool_configs": {
+                  "check_account_kyc_status": {
+                    "additional_search_text": "accounts___check_account_kyc_status check_account_kyc_status current account KYC status compliance know your customer customer identity review"
+                  },
+                  "get_account_balance": {
+                    "additional_search_text": "current account balance available balance checking account cash account"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "name": "accounts___summarize_monthly_statement",
+            "description": "Summarize monthly current account statement.",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "customer_id": {
+                  "title": "Customer Id",
+                  "type": "string"
+                },
+                "account_id": {
+                  "title": "Account Id",
+                  "type": "string"
+                },
+                "amount": {
+                  "default": 1000,
+                  "title": "Amount",
+                  "type": "number"
+                }
+              },
+              "required": [
+                "customer_id",
+                "account_id"
+              ]
+            },
+            "_meta": {
+              "tool_configuration": {
+                "type": "mcp",
+                "server_label": "accounts",
+                "server_url": "https://fsitbx0606tk-accounts-mcp.whitemoss-9b71305a.swedencentral.azurecontainerapps.io/mcp",
+                "require_approval": "never",
+                "tool_configs": {
+                  "check_account_kyc_status": {
+                    "additional_search_text": "accounts___check_account_kyc_status check_account_kyc_status current account KYC status compliance know your customer customer identity review"
+                  },
+                  "get_account_balance": {
+                    "additional_search_text": "current account balance available balance checking account cash account"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,292 @@
+{
+  "loan-single-tool": {
+    "toolbox": "fsi-autopin-warm-loan-single-tool-1780851831",
+    "endpoint": "https://fsitbx0606tk-foundry.services.ai.azure.com/api/projects/fsitbx0606tk-project/toolboxes/fsi-autopin-warm-loan-single-tool-1780851831/mcp?api-version=v1",
+    "tools": [
+      {
+        "name": "tool_search",
+        "title": "Tool Search",
+        "description": "Search for relevant tools using keyword search over tool names, titles, and descriptions. Describe the capability you need in natural language. Returns matching tools that can then be invoked via call_tool.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "Natural language capability query."
+            },
+            "limit": {
+              "type": "integer",
+              "description": "Maximum number of matches to return.",
+              "minimum": 1,
+              "maximum": 10,
+              "default": 5
+            }
+          }
+        },
+        "outputSchema": null,
+        "icons": null,
+        "annotations": null,
+        "meta": {
+          "com.microsoft.foundry/tool_visibility": "system_pinned"
+        },
+        "execution": null
+      },
+      {
+        "name": "call_tool",
+        "title": "Call Tool",
+        "description": "Invoke a discovered tool by name with arguments. Pass the tool name in the \"name\" field and parameters in \"arguments\". Example: {\"name\": \"get_user\", \"arguments\": {\"user_id\": \"u-123\"}}",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "The name of the tool to call."
+            },
+            "arguments": {
+              "type": "object",
+              "description": "The arguments to pass to the target tool.",
+              "additionalProperties": true
+            }
+          },
+          "required": [
+            "name"
+          ]
+        },
+        "outputSchema": null,
+        "icons": null,
+        "annotations": null,
+        "meta": {
+          "com.microsoft.foundry/tool_visibility": "system_pinned"
+        },
+        "execution": null
+      },
+      {
+        "name": "loans___get_loan_balance",
+        "title": null,
+        "description": "Return current mocked balance for a loan.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "loan_id": {
+              "title": "Loan Id",
+              "type": "string"
+            },
+            "as_of_date": {
+              "title": "As Of Date",
+              "type": "string"
+            }
+          },
+          "required": [
+            "loan_id",
+            "as_of_date"
+          ]
+        },
+        "outputSchema": null,
+        "icons": null,
+        "annotations": null,
+        "meta": {
+          "tool_configuration": {
+            "type": "mcp",
+            "server_label": "loans",
+            "server_url": "https://fsitbx0606tk-loans-mcp.whitemoss-9b71305a.swedencentral.azurecontainerapps.io/mcp",
+            "require_approval": "never",
+            "tool_configs": {
+              "get_loan_balance": {
+                "additional_search_text": "loans___get_loan_balance get_loan_balance loan balance current loan balance outstanding balance loan id as of date"
+              },
+              "get_mortgage_affordability": {
+                "additional_search_text": "mortgage affordability borrowing capacity annual income monthly debt home loan"
+              }
+            }
+          },
+          "com.microsoft.foundry/tool_visibility": "auto_pinned"
+        },
+        "execution": null
+      }
+    ]
+  },
+  "cross-domain-three-tools": {
+    "toolbox": "fsi-autopin-warm-cross-domain-three-tools-1780851948",
+    "endpoint": "https://fsitbx0606tk-foundry.services.ai.azure.com/api/projects/fsitbx0606tk-project/toolboxes/fsi-autopin-warm-cross-domain-three-tools-1780851948/mcp?api-version=v1",
+    "tools": [
+      {
+        "name": "tool_search",
+        "title": "Tool Search",
+        "description": "Search for relevant tools using keyword search over tool names, titles, and descriptions. Describe the capability you need in natural language. Returns matching tools that can then be invoked via call_tool.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "Natural language capability query."
+            },
+            "limit": {
+              "type": "integer",
+              "description": "Maximum number of matches to return.",
+              "minimum": 1,
+              "maximum": 10,
+              "default": 5
+            }
+          }
+        },
+        "outputSchema": null,
+        "icons": null,
+        "annotations": null,
+        "meta": {
+          "com.microsoft.foundry/tool_visibility": "system_pinned"
+        },
+        "execution": null
+      },
+      {
+        "name": "call_tool",
+        "title": "Call Tool",
+        "description": "Invoke a discovered tool by name with arguments. Pass the tool name in the \"name\" field and parameters in \"arguments\". Example: {\"name\": \"get_user\", \"arguments\": {\"user_id\": \"u-123\"}}",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "The name of the tool to call."
+            },
+            "arguments": {
+              "type": "object",
+              "description": "The arguments to pass to the target tool.",
+              "additionalProperties": true
+            }
+          },
+          "required": [
+            "name"
+          ]
+        },
+        "outputSchema": null,
+        "icons": null,
+        "annotations": null,
+        "meta": {
+          "com.microsoft.foundry/tool_visibility": "system_pinned"
+        },
+        "execution": null
+      },
+      {
+        "name": "accounts___check_account_kyc_status",
+        "title": null,
+        "description": "Return KYC status for current account servicing.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "customer_id": {
+              "title": "Customer Id",
+              "type": "string"
+            }
+          },
+          "required": [
+            "customer_id"
+          ]
+        },
+        "outputSchema": null,
+        "icons": null,
+        "annotations": null,
+        "meta": {
+          "tool_configuration": {
+            "type": "mcp",
+            "server_label": "accounts",
+            "server_url": "https://fsitbx0606tk-accounts-mcp.whitemoss-9b71305a.swedencentral.azurecontainerapps.io/mcp",
+            "require_approval": "never",
+            "tool_configs": {
+              "check_account_kyc_status": {
+                "additional_search_text": "accounts___check_account_kyc_status check_account_kyc_status current account KYC status compliance know your customer customer identity review"
+              },
+              "get_account_balance": {
+                "additional_search_text": "current account balance available balance checking account cash account"
+              }
+            }
+          },
+          "com.microsoft.foundry/tool_visibility": "auto_pinned"
+        },
+        "execution": null
+      },
+      {
+        "name": "investments___get_portfolio_summary",
+        "title": null,
+        "description": "Return mocked portfolio summary.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "customer_id": {
+              "title": "Customer Id",
+              "type": "string"
+            },
+            "portfolio_id": {
+              "title": "Portfolio Id",
+              "type": "string"
+            }
+          },
+          "required": [
+            "customer_id",
+            "portfolio_id"
+          ]
+        },
+        "outputSchema": null,
+        "icons": null,
+        "annotations": null,
+        "meta": {
+          "tool_configuration": {
+            "type": "mcp",
+            "server_label": "investments",
+            "server_url": "https://fsitbx0606tk-investments-mcp.whitemoss-9b71305a.swedencentral.azurecontainerapps.io/mcp",
+            "require_approval": "never",
+            "tool_configs": {
+              "get_portfolio_summary": {
+                "additional_search_text": "investments___get_portfolio_summary get_portfolio_summary portfolio summary market value portfolio valuation total value customer portfolio"
+              }
+            }
+          },
+          "com.microsoft.foundry/tool_visibility": "auto_pinned"
+        },
+        "execution": null
+      },
+      {
+        "name": "loans___get_loan_balance",
+        "title": null,
+        "description": "Return current mocked balance for a loan.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "loan_id": {
+              "title": "Loan Id",
+              "type": "string"
+            },
+            "as_of_date": {
+              "title": "As Of Date",
+              "type": "string"
+            }
+          },
+          "required": [
+            "loan_id",
+            "as_of_date"
+          ]
+        },
+        "outputSchema": null,
+        "icons": null,
+        "annotations": null,
+        "meta": {
+          "tool_configuration": {
+            "type": "mcp",
+            "server_label": "loans",
+            "server_url": "https://fsitbx0606tk-loans-mcp.whitemoss-9b71305a.swedencentral.azurecontainerapps.io/mcp",
+            "require_approval": "never",
+            "tool_configs": {
+              "get_loan_balance": {
+                "additional_search_text": "loans___get_loan_balance get_loan_balance loan balance current loan balance outstanding balance loan id as of date"
+              },
+              "get_mortgage_affordability": {
+                "additional_search_text": "mortgage affordability borrowing capacity annual income monthly debt home loan"
+              }
+            }
+          },
+          "com.microsoft.foundry/tool_visibility": "auto_pinned"
+        },
+        "execution": null
+      }
+    ]
+  }
+}

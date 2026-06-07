@@ -135,6 +135,55 @@ async def recommend_fee_waiver(customer_id: str, account_id: str, relationship_y
     return {"marker": account_marker(customer_id), "account_id": account_id, "waive_fee": relationship_years >= 3}
 
 
+def add_mock_account_tool(name: str, description: str) -> None:
+    async def tool(customer_id: str, account_id: str, amount: float = 1000.0) -> dict:
+        return {
+            "marker": account_marker(customer_id),
+            "tool": name,
+            "account_id": account_id,
+            "amount": amount,
+            "status": "mocked",
+            "currency": "EUR",
+        }
+
+    mcp.add_tool(tool, name=name, description=description)
+
+
+for tool_name, tool_description in [
+    ("review_payment_limit", "Review payment limit for a current account."),
+    ("increase_transfer_limit", "Mock increasing transfer limit."),
+    ("assess_salary_pattern", "Assess salary pattern in current account transactions."),
+    ("detect_subscription_spend", "Detect recurring subscription spend."),
+    ("summarize_merchant_spend", "Summarize spend by merchant."),
+    ("review_chargeback_case", "Review card chargeback case."),
+    ("create_card_replacement", "Create mocked card replacement order."),
+    ("estimate_cash_withdrawal_fee", "Estimate cash withdrawal fee."),
+    ("review_joint_account_access", "Review joint account access status."),
+    ("check_sepa_reachability", "Check SEPA reachability for a beneficiary."),
+    ("validate_payment_reference", "Validate payment reference format."),
+    ("assess_fraud_alert", "Assess mocked fraud alert."),
+    ("review_account_closure_readiness", "Review account closure readiness."),
+    ("calculate_interest_on_positive_balance", "Calculate interest on positive balance."),
+    ("recommend_budget_category_limit", "Recommend budget category limit."),
+    ("detect_income_interruption", "Detect income interruption risk."),
+    ("review_cash_deposit_pattern", "Review cash deposit pattern."),
+    ("estimate_international_transfer_time", "Estimate international transfer time."),
+    ("check_beneficiary_risk", "Check beneficiary risk score."),
+    ("review_power_of_attorney", "Review power of attorney on account."),
+    ("summarize_monthly_statement", "Summarize monthly current account statement."),
+    ("detect_round_number_transfers", "Detect round-number transfer pattern."),
+    ("review_account_package_fit", "Review current account package fit."),
+    ("estimate_atm_rebate", "Estimate ATM fee rebate."),
+    ("check_dormancy_risk", "Check account dormancy risk."),
+    ("review_negative_balance_history", "Review negative balance history."),
+    ("recommend_alert_threshold", "Recommend balance alert threshold."),
+    ("assess_travel_notice_need", "Assess whether travel notice is needed."),
+    ("review_cashback_eligibility", "Review cashback eligibility."),
+    ("summarize_account_health", "Summarize mocked account health."),
+]:
+    add_mock_account_tool(tool_name, tool_description)
+
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     async with AsyncExitStack() as stack:

@@ -1,0 +1,65 @@
+{
+  "fresh-reference-cold": {
+    "toolbox": "fsi-reference-cold-1780853386",
+    "endpoint": "https://fsitbx0606tk-foundry.services.ai.azure.com/api/projects/fsitbx0606tk-project/toolboxes/fsi-reference-cold-1780853386/versions/1/mcp?api-version=v1",
+    "tools": [
+      {
+        "name": "tool_search",
+        "title": "Tool Search",
+        "description": "Search for relevant tools using keyword search over tool names, titles, and descriptions. Describe the capability you need in natural language. Returns matching tools that can then be invoked via call_tool.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "Natural language capability query."
+            },
+            "limit": {
+              "type": "integer",
+              "description": "Maximum number of matches to return.",
+              "minimum": 1,
+              "maximum": 10,
+              "default": 5
+            }
+          }
+        },
+        "outputSchema": null,
+        "icons": null,
+        "annotations": null,
+        "meta": {
+          "com.microsoft.foundry/tool_visibility": "system_pinned"
+        },
+        "execution": null
+      },
+      {
+        "name": "call_tool",
+        "title": "Call Tool",
+        "description": "Invoke a discovered tool by name with arguments. Pass the tool name in the \"name\" field and parameters in \"arguments\". Example: {\"name\": \"get_user\", \"arguments\": {\"user_id\": \"u-123\"}}",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "The name of the tool to call."
+            },
+            "arguments": {
+              "type": "object",
+              "description": "The arguments to pass to the target tool.",
+              "additionalProperties": true
+            }
+          },
+          "required": [
+            "name"
+          ]
+        },
+        "outputSchema": null,
+        "icons": null,
+        "annotations": null,
+        "meta": {
+          "com.microsoft.foundry/tool_visibility": "system_pinned"
+        },
+        "execution": null
+      }
+    ]
+  }
+}

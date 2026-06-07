@@ -146,6 +146,55 @@ async def simulate_interest_rate_shock(loan_id: str, shock_bps: int) -> dict:
     return {"loan_id": loan_id, "shock_bps": shock_bps, "monthly_payment_increase": delta, "currency": "EUR"}
 
 
+def add_mock_loan_tool(name: str, description: str) -> None:
+    async def tool(customer_id: str, reference_id: str, amount: float = 1000.0) -> dict:
+        return {
+            "marker": loan_marker(customer_id),
+            "tool": name,
+            "reference_id": reference_id,
+            "amount": amount,
+            "status": "mocked",
+            "currency": "EUR",
+        }
+
+    mcp.add_tool(tool, name=name, description=description)
+
+
+for tool_name, tool_description in [
+    ("price_bridge_loan", "Price a short-term bridge loan for property purchase timing gaps."),
+    ("assess_construction_draw", "Assess whether a construction loan draw request is in policy."),
+    ("review_appraisal_gap", "Review appraisal gap risk for a mortgage application."),
+    ("estimate_closing_costs", "Estimate closing costs for a loan transaction."),
+    ("calculate_apr_from_fees", "Calculate annual percentage rate impact from fees."),
+    ("score_small_business_loan", "Score a small-business loan using mocked financial indicators."),
+    ("review_covenant_compliance", "Review mocked covenant compliance for a commercial loan."),
+    ("estimate_collateral_haircut", "Estimate collateral haircut for secured lending."),
+    ("calculate_balloon_payment", "Calculate mocked balloon payment for a loan."),
+    ("assess_guarantor_strength", "Assess guarantor strength for a credit application."),
+    ("review_payment_holiday_request", "Review a borrower payment holiday request."),
+    ("calculate_interest_only_payment", "Calculate interest-only loan payment."),
+    ("check_mortgage_insurance_need", "Check whether mortgage insurance is needed."),
+    ("estimate_credit_line_utilization", "Estimate credit line utilization and warning status."),
+    ("review_overpayment_allowance", "Review annual loan overpayment allowance."),
+    ("calculate_variable_rate_reset", "Calculate payment impact at variable-rate reset."),
+    ("assess_green_mortgage_discount", "Assess eligibility for green mortgage discount."),
+    ("review_debt_consolidation_fit", "Review whether debt consolidation loan is suitable."),
+    ("estimate_auto_loan_residual", "Estimate residual value for an auto loan."),
+    ("calculate_loan_modification_terms", "Calculate mocked loan modification terms."),
+    ("review_lien_position", "Review lien position for secured lending."),
+    ("estimate_loss_given_default", "Estimate mocked loss given default."),
+    ("calculate_probability_of_default", "Calculate mocked probability of default."),
+    ("review_document_exceptions", "Review loan document exceptions."),
+    ("assess_portfolio_concentration", "Assess loan portfolio concentration risk."),
+    ("calculate_servicing_fee", "Calculate mocked loan servicing fee."),
+    ("review_drawdown_conditions", "Review conditions precedent for loan drawdown."),
+    ("estimate_prepayment_speed", "Estimate mocked prepayment speed."),
+    ("check_regulatory_lending_limit", "Check regulatory lending limit headroom."),
+    ("summarize_credit_memo", "Summarize mocked credit memo highlights."),
+]:
+    add_mock_loan_tool(tool_name, tool_description)
+
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     async with AsyncExitStack() as stack:

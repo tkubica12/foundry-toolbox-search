@@ -420,14 +420,26 @@ def create_toolbox(cfg: Config, clients: Clients, endpoints: dict[str, str]) -> 
         name=cfg.toolbox_name,
         description="FSI demo toolbox bundling loans, investments, and current account MCP tools with tool search.",
         tools=[
-            MCPTool(server_label="loans", server_url=endpoints["loans"], require_approval="never"),
+            MCPTool(
+                server_label="loans",
+                server_url=endpoints["loans"],
+                require_approval="never",
+                tool_configs={
+                    "get_loan_balance": ToolConfig(
+                        additional_search_text="loans___get_loan_balance get_loan_balance loan balance current loan balance outstanding balance loan id as of date"
+                    ),
+                    "get_mortgage_affordability": ToolConfig(
+                        additional_search_text="mortgage affordability borrowing capacity annual income monthly debt home loan"
+                    ),
+                },
+            ),
             MCPTool(
                 server_label="investments",
                 server_url=endpoints["investments"],
                 require_approval="never",
                 tool_configs={
                     "get_portfolio_summary": ToolConfig(
-                        additional_search_text="portfolio summary market value portfolio valuation total value customer portfolio"
+                        additional_search_text="investments___get_portfolio_summary get_portfolio_summary portfolio summary market value portfolio valuation total value customer portfolio"
                     )
                 },
             ),
@@ -437,7 +449,7 @@ def create_toolbox(cfg: Config, clients: Clients, endpoints: dict[str, str]) -> 
                 require_approval="never",
                 tool_configs={
                     "check_account_kyc_status": ToolConfig(
-                        additional_search_text="current account KYC status compliance know your customer customer identity review"
+                        additional_search_text="accounts___check_account_kyc_status check_account_kyc_status current account KYC status compliance know your customer customer identity review"
                     ),
                     "get_account_balance": ToolConfig(
                         additional_search_text="current account balance available balance checking account cash account"

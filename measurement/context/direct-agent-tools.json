@@ -1,0 +1,4002 @@
+[
+  {
+    "type": "function",
+    "name": "loans__get_mortgage_affordability",
+    "description": "Estimate mortgage affordability for a customer.\n\n    Args:\n        customer_id: Customer identifier.\n        annual_income: Gross yearly income.\n        monthly_debt: Existing monthly debt payments.\n    ",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "annual_income": {
+          "title": "Annual Income",
+          "type": "number"
+        },
+        "monthly_debt": {
+          "title": "Monthly Debt",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "annual_income",
+        "monthly_debt"
+      ],
+      "title": "get_mortgage_affordabilityArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "loans__quote_personal_loan",
+    "description": "Quote a mocked personal loan rate and payment.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "amount": {
+          "title": "Amount",
+          "type": "number"
+        },
+        "term_months": {
+          "title": "Term Months",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "customer_id",
+        "amount",
+        "term_months"
+      ],
+      "title": "quote_personal_loanArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "loans__check_loan_eligibility",
+    "description": "Check high-level eligibility for a loan product.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "product_type": {
+          "title": "Product Type",
+          "type": "string"
+        },
+        "credit_score": {
+          "title": "Credit Score",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "customer_id",
+        "product_type",
+        "credit_score"
+      ],
+      "title": "check_loan_eligibilityArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "loans__get_loan_balance",
+    "description": "Return current mocked balance for a loan.",
+    "parameters": {
+      "properties": {
+        "loan_id": {
+          "title": "Loan Id",
+          "type": "string"
+        },
+        "as_of_date": {
+          "title": "As Of Date",
+          "type": "string"
+        }
+      },
+      "required": [
+        "loan_id",
+        "as_of_date"
+      ],
+      "title": "get_loan_balanceArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "loans__calculate_early_repayment_fee",
+    "description": "Calculate a mocked early repayment fee.",
+    "parameters": {
+      "properties": {
+        "loan_id": {
+          "title": "Loan Id",
+          "type": "string"
+        },
+        "repayment_amount": {
+          "title": "Repayment Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "loan_id",
+        "repayment_amount"
+      ],
+      "title": "calculate_early_repayment_feeArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "loans__summarize_repayment_schedule",
+    "description": "Summarize upcoming repayment schedule.",
+    "parameters": {
+      "properties": {
+        "loan_id": {
+          "title": "Loan Id",
+          "type": "string"
+        },
+        "months": {
+          "title": "Months",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "loan_id",
+        "months"
+      ],
+      "title": "summarize_repayment_scheduleArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "loans__assess_refinance_savings",
+    "description": "Estimate savings from refinancing.",
+    "parameters": {
+      "properties": {
+        "loan_id": {
+          "title": "Loan Id",
+          "type": "string"
+        },
+        "new_apr_percent": {
+          "title": "New Apr Percent",
+          "type": "number"
+        },
+        "remaining_months": {
+          "title": "Remaining Months",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "loan_id",
+        "new_apr_percent",
+        "remaining_months"
+      ],
+      "title": "assess_refinance_savingsArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "loans__get_collateral_valuation",
+    "description": "Return mocked collateral valuation.",
+    "parameters": {
+      "properties": {
+        "collateral_id": {
+          "title": "Collateral Id",
+          "type": "string"
+        },
+        "valuation_date": {
+          "title": "Valuation Date",
+          "type": "string"
+        }
+      },
+      "required": [
+        "collateral_id",
+        "valuation_date"
+      ],
+      "title": "get_collateral_valuationArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "loans__compute_ltv_ratio",
+    "description": "Compute loan-to-value ratio.",
+    "parameters": {
+      "properties": {
+        "loan_id": {
+          "title": "Loan Id",
+          "type": "string"
+        },
+        "balance": {
+          "title": "Balance",
+          "type": "number"
+        },
+        "collateral_value": {
+          "title": "Collateral Value",
+          "type": "number"
+        }
+      },
+      "required": [
+        "loan_id",
+        "balance",
+        "collateral_value"
+      ],
+      "title": "compute_ltv_ratioArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "loans__get_delinquency_status",
+    "description": "Return mocked delinquency status.",
+    "parameters": {
+      "properties": {
+        "loan_id": {
+          "title": "Loan Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "loan_id"
+      ],
+      "title": "get_delinquency_statusArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "loans__recommend_hardship_options",
+    "description": "Recommend hardship options for a borrower.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "loan_id": {
+          "title": "Loan Id",
+          "type": "string"
+        },
+        "hardship_reason": {
+          "title": "Hardship Reason",
+          "type": "string"
+        }
+      },
+      "required": [
+        "customer_id",
+        "loan_id",
+        "hardship_reason"
+      ],
+      "title": "recommend_hardship_optionsArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "loans__verify_income_document",
+    "description": "Mock verification of income evidence.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "document_type": {
+          "title": "Document Type",
+          "type": "string"
+        },
+        "monthly_income": {
+          "title": "Monthly Income",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "document_type",
+        "monthly_income"
+      ],
+      "title": "verify_income_documentArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "loans__estimate_debt_to_income",
+    "description": "Calculate debt-to-income ratio.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "annual_income": {
+          "title": "Annual Income",
+          "type": "number"
+        },
+        "monthly_debt": {
+          "title": "Monthly Debt",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "annual_income",
+        "monthly_debt"
+      ],
+      "title": "estimate_debt_to_incomeArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "loans__get_rate_lock_status",
+    "description": "Return mocked rate lock status for an application.",
+    "parameters": {
+      "properties": {
+        "application_id": {
+          "title": "Application Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "application_id"
+      ],
+      "title": "get_rate_lock_statusArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "loans__create_loan_application",
+    "description": "Create a mocked loan application.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "product_type": {
+          "title": "Product Type",
+          "type": "string"
+        },
+        "requested_amount": {
+          "title": "Requested Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "product_type",
+        "requested_amount"
+      ],
+      "title": "create_loan_applicationArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "loans__get_application_status",
+    "description": "Return mocked loan application status.",
+    "parameters": {
+      "properties": {
+        "application_id": {
+          "title": "Application Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "application_id"
+      ],
+      "title": "get_application_statusArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "loans__calculate_payoff_quote",
+    "description": "Calculate mocked loan payoff quote.",
+    "parameters": {
+      "properties": {
+        "loan_id": {
+          "title": "Loan Id",
+          "type": "string"
+        },
+        "payoff_date": {
+          "title": "Payoff Date",
+          "type": "string"
+        }
+      },
+      "required": [
+        "loan_id",
+        "payoff_date"
+      ],
+      "title": "calculate_payoff_quoteArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "loans__compare_fixed_variable_rates",
+    "description": "Compare mocked fixed and variable loan options.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "amount": {
+          "title": "Amount",
+          "type": "number"
+        },
+        "term_months": {
+          "title": "Term Months",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "customer_id",
+        "amount",
+        "term_months"
+      ],
+      "title": "compare_fixed_variable_ratesArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "loans__list_required_loan_documents",
+    "description": "List required documents for a loan product.",
+    "parameters": {
+      "properties": {
+        "product_type": {
+          "title": "Product Type",
+          "type": "string"
+        },
+        "customer_segment": {
+          "title": "Customer Segment",
+          "type": "string"
+        }
+      },
+      "required": [
+        "product_type",
+        "customer_segment"
+      ],
+      "title": "list_required_loan_documentsArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "loans__simulate_interest_rate_shock",
+    "description": "Simulate payment impact of an interest-rate shock.",
+    "parameters": {
+      "properties": {
+        "loan_id": {
+          "title": "Loan Id",
+          "type": "string"
+        },
+        "shock_bps": {
+          "title": "Shock Bps",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "loan_id",
+        "shock_bps"
+      ],
+      "title": "simulate_interest_rate_shockArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "loans__price_bridge_loan",
+    "description": "Price a short-term bridge loan for property purchase timing gaps.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "reference_id": {
+          "title": "Reference Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "reference_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "loans__assess_construction_draw",
+    "description": "Assess whether a construction loan draw request is in policy.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "reference_id": {
+          "title": "Reference Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "reference_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "loans__review_appraisal_gap",
+    "description": "Review appraisal gap risk for a mortgage application.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "reference_id": {
+          "title": "Reference Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "reference_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "loans__estimate_closing_costs",
+    "description": "Estimate closing costs for a loan transaction.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "reference_id": {
+          "title": "Reference Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "reference_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "loans__calculate_apr_from_fees",
+    "description": "Calculate annual percentage rate impact from fees.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "reference_id": {
+          "title": "Reference Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "reference_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "loans__score_small_business_loan",
+    "description": "Score a small-business loan using mocked financial indicators.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "reference_id": {
+          "title": "Reference Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "reference_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "loans__review_covenant_compliance",
+    "description": "Review mocked covenant compliance for a commercial loan.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "reference_id": {
+          "title": "Reference Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "reference_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "loans__estimate_collateral_haircut",
+    "description": "Estimate collateral haircut for secured lending.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "reference_id": {
+          "title": "Reference Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "reference_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "loans__calculate_balloon_payment",
+    "description": "Calculate mocked balloon payment for a loan.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "reference_id": {
+          "title": "Reference Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "reference_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "loans__assess_guarantor_strength",
+    "description": "Assess guarantor strength for a credit application.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "reference_id": {
+          "title": "Reference Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "reference_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "loans__review_payment_holiday_request",
+    "description": "Review a borrower payment holiday request.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "reference_id": {
+          "title": "Reference Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "reference_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "loans__calculate_interest_only_payment",
+    "description": "Calculate interest-only loan payment.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "reference_id": {
+          "title": "Reference Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "reference_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "loans__check_mortgage_insurance_need",
+    "description": "Check whether mortgage insurance is needed.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "reference_id": {
+          "title": "Reference Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "reference_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "loans__estimate_credit_line_utilization",
+    "description": "Estimate credit line utilization and warning status.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "reference_id": {
+          "title": "Reference Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "reference_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "loans__review_overpayment_allowance",
+    "description": "Review annual loan overpayment allowance.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "reference_id": {
+          "title": "Reference Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "reference_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "loans__calculate_variable_rate_reset",
+    "description": "Calculate payment impact at variable-rate reset.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "reference_id": {
+          "title": "Reference Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "reference_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "loans__assess_green_mortgage_discount",
+    "description": "Assess eligibility for green mortgage discount.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "reference_id": {
+          "title": "Reference Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "reference_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "loans__review_debt_consolidation_fit",
+    "description": "Review whether debt consolidation loan is suitable.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "reference_id": {
+          "title": "Reference Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "reference_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "loans__estimate_auto_loan_residual",
+    "description": "Estimate residual value for an auto loan.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "reference_id": {
+          "title": "Reference Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "reference_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "loans__calculate_loan_modification_terms",
+    "description": "Calculate mocked loan modification terms.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "reference_id": {
+          "title": "Reference Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "reference_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "loans__review_lien_position",
+    "description": "Review lien position for secured lending.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "reference_id": {
+          "title": "Reference Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "reference_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "loans__estimate_loss_given_default",
+    "description": "Estimate mocked loss given default.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "reference_id": {
+          "title": "Reference Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "reference_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "loans__calculate_probability_of_default",
+    "description": "Calculate mocked probability of default.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "reference_id": {
+          "title": "Reference Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "reference_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "loans__review_document_exceptions",
+    "description": "Review loan document exceptions.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "reference_id": {
+          "title": "Reference Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "reference_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "loans__assess_portfolio_concentration",
+    "description": "Assess loan portfolio concentration risk.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "reference_id": {
+          "title": "Reference Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "reference_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "loans__calculate_servicing_fee",
+    "description": "Calculate mocked loan servicing fee.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "reference_id": {
+          "title": "Reference Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "reference_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "loans__review_drawdown_conditions",
+    "description": "Review conditions precedent for loan drawdown.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "reference_id": {
+          "title": "Reference Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "reference_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "loans__estimate_prepayment_speed",
+    "description": "Estimate mocked prepayment speed.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "reference_id": {
+          "title": "Reference Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "reference_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "loans__check_regulatory_lending_limit",
+    "description": "Check regulatory lending limit headroom.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "reference_id": {
+          "title": "Reference Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "reference_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "loans__summarize_credit_memo",
+    "description": "Summarize mocked credit memo highlights.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "reference_id": {
+          "title": "Reference Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "reference_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "investments__get_portfolio_summary",
+    "description": "Return mocked portfolio summary.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "portfolio_id": {
+          "title": "Portfolio Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "customer_id",
+        "portfolio_id"
+      ],
+      "title": "get_portfolio_summaryArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "investments__calculate_asset_allocation",
+    "description": "Calculate mocked asset allocation.",
+    "parameters": {
+      "properties": {
+        "portfolio_id": {
+          "title": "Portfolio Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "portfolio_id"
+      ],
+      "title": "calculate_asset_allocationArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "investments__assess_risk_profile",
+    "description": "Assess investor risk profile.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "horizon_years": {
+          "title": "Horizon Years",
+          "type": "integer"
+        },
+        "loss_tolerance_percent": {
+          "title": "Loss Tolerance Percent",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "horizon_years",
+        "loss_tolerance_percent"
+      ],
+      "title": "assess_risk_profileArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "investments__recommend_rebalance_trades",
+    "description": "Recommend mocked rebalancing trades.",
+    "parameters": {
+      "properties": {
+        "portfolio_id": {
+          "title": "Portfolio Id",
+          "type": "string"
+        },
+        "target_equity_percent": {
+          "title": "Target Equity Percent",
+          "type": "number"
+        }
+      },
+      "required": [
+        "portfolio_id",
+        "target_equity_percent"
+      ],
+      "title": "recommend_rebalance_tradesArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "investments__estimate_portfolio_var",
+    "description": "Estimate mocked portfolio value at risk.",
+    "parameters": {
+      "properties": {
+        "portfolio_id": {
+          "title": "Portfolio Id",
+          "type": "string"
+        },
+        "confidence_percent": {
+          "title": "Confidence Percent",
+          "type": "number"
+        },
+        "horizon_days": {
+          "title": "Horizon Days",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "portfolio_id",
+        "confidence_percent",
+        "horizon_days"
+      ],
+      "title": "estimate_portfolio_varArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "investments__get_security_quote",
+    "description": "Return mocked security quote.",
+    "parameters": {
+      "properties": {
+        "symbol": {
+          "title": "Symbol",
+          "type": "string"
+        },
+        "exchange": {
+          "title": "Exchange",
+          "type": "string"
+        }
+      },
+      "required": [
+        "symbol",
+        "exchange"
+      ],
+      "title": "get_security_quoteArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "investments__screen_sustainable_funds",
+    "description": "Screen mocked sustainable funds.",
+    "parameters": {
+      "properties": {
+        "region": {
+          "title": "Region",
+          "type": "string"
+        },
+        "minimum_esg_score": {
+          "title": "Minimum Esg Score",
+          "type": "integer"
+        },
+        "asset_class": {
+          "title": "Asset Class",
+          "type": "string"
+        }
+      },
+      "required": [
+        "region",
+        "minimum_esg_score",
+        "asset_class"
+      ],
+      "title": "screen_sustainable_fundsArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "investments__calculate_realized_gain",
+    "description": "Calculate mocked realized gains.",
+    "parameters": {
+      "properties": {
+        "account_id": {
+          "title": "Account Id",
+          "type": "string"
+        },
+        "tax_year": {
+          "title": "Tax Year",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "account_id",
+        "tax_year"
+      ],
+      "title": "calculate_realized_gainArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "investments__check_product_suitability",
+    "description": "Check mocked investment product suitability.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "product_id": {
+          "title": "Product Id",
+          "type": "string"
+        },
+        "risk_rating": {
+          "title": "Risk Rating",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "customer_id",
+        "product_id",
+        "risk_rating"
+      ],
+      "title": "check_product_suitabilityArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "investments__get_dividend_calendar",
+    "description": "Return mocked upcoming dividends.",
+    "parameters": {
+      "properties": {
+        "portfolio_id": {
+          "title": "Portfolio Id",
+          "type": "string"
+        },
+        "next_days": {
+          "title": "Next Days",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "portfolio_id",
+        "next_days"
+      ],
+      "title": "get_dividend_calendarArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "investments__simulate_market_shock",
+    "description": "Simulate mocked market shock impact.",
+    "parameters": {
+      "properties": {
+        "portfolio_id": {
+          "title": "Portfolio Id",
+          "type": "string"
+        },
+        "equity_shock_percent": {
+          "title": "Equity Shock Percent",
+          "type": "number"
+        },
+        "rate_shock_bps": {
+          "title": "Rate Shock Bps",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "portfolio_id",
+        "equity_shock_percent",
+        "rate_shock_bps"
+      ],
+      "title": "simulate_market_shockArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "investments__get_investment_policy_statement",
+    "description": "Return mocked investment policy statement summary.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "customer_id"
+      ],
+      "title": "get_investment_policy_statementArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "investments__compare_fund_expenses",
+    "description": "Compare mocked fund expenses.",
+    "parameters": {
+      "properties": {
+        "fund_a": {
+          "title": "Fund A",
+          "type": "string"
+        },
+        "fund_b": {
+          "title": "Fund B",
+          "type": "string"
+        },
+        "investment_amount": {
+          "title": "Investment Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "fund_a",
+        "fund_b",
+        "investment_amount"
+      ],
+      "title": "compare_fund_expensesArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "investments__calculate_expected_income",
+    "description": "Calculate mocked expected portfolio income.",
+    "parameters": {
+      "properties": {
+        "portfolio_id": {
+          "title": "Portfolio Id",
+          "type": "string"
+        },
+        "next_months": {
+          "title": "Next Months",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "portfolio_id",
+        "next_months"
+      ],
+      "title": "calculate_expected_incomeArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "investments__get_model_portfolio",
+    "description": "Return mocked model portfolio.",
+    "parameters": {
+      "properties": {
+        "model_name": {
+          "title": "Model Name",
+          "type": "string"
+        },
+        "risk_level": {
+          "title": "Risk Level",
+          "type": "string"
+        }
+      },
+      "required": [
+        "model_name",
+        "risk_level"
+      ],
+      "title": "get_model_portfolioArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "investments__assess_concentration_risk",
+    "description": "Assess mocked issuer concentration risk.",
+    "parameters": {
+      "properties": {
+        "portfolio_id": {
+          "title": "Portfolio Id",
+          "type": "string"
+        },
+        "issuer_limit_percent": {
+          "title": "Issuer Limit Percent",
+          "type": "number"
+        }
+      },
+      "required": [
+        "portfolio_id",
+        "issuer_limit_percent"
+      ],
+      "title": "assess_concentration_riskArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "investments__generate_trade_ticket",
+    "description": "Generate a mocked trade ticket.",
+    "parameters": {
+      "properties": {
+        "account_id": {
+          "title": "Account Id",
+          "type": "string"
+        },
+        "symbol": {
+          "title": "Symbol",
+          "type": "string"
+        },
+        "side": {
+          "title": "Side",
+          "type": "string"
+        },
+        "quantity": {
+          "title": "Quantity",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "account_id",
+        "symbol",
+        "side",
+        "quantity"
+      ],
+      "title": "generate_trade_ticketArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "investments__get_benchmark_performance",
+    "description": "Return mocked benchmark performance.",
+    "parameters": {
+      "properties": {
+        "benchmark_id": {
+          "title": "Benchmark Id",
+          "type": "string"
+        },
+        "period": {
+          "title": "Period",
+          "type": "string"
+        }
+      },
+      "required": [
+        "benchmark_id",
+        "period"
+      ],
+      "title": "get_benchmark_performanceArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "investments__evaluate_liquidity_needs",
+    "description": "Evaluate mocked liquidity needs.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "required_cash": {
+          "title": "Required Cash",
+          "type": "number"
+        },
+        "horizon_months": {
+          "title": "Horizon Months",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "customer_id",
+        "required_cash",
+        "horizon_months"
+      ],
+      "title": "evaluate_liquidity_needsArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "investments__recommend_tax_loss_harvest",
+    "description": "Recommend mocked tax-loss harvesting candidates.",
+    "parameters": {
+      "properties": {
+        "portfolio_id": {
+          "title": "Portfolio Id",
+          "type": "string"
+        },
+        "minimum_loss": {
+          "title": "Minimum Loss",
+          "type": "number"
+        }
+      },
+      "required": [
+        "portfolio_id",
+        "minimum_loss"
+      ],
+      "title": "recommend_tax_loss_harvestArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "investments__screen_bond_ladder",
+    "description": "Screen a bond ladder for maturity and income targets.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "portfolio_id": {
+          "title": "Portfolio Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "portfolio_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "investments__estimate_duration_risk",
+    "description": "Estimate duration risk for a fixed-income allocation.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "portfolio_id": {
+          "title": "Portfolio Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "portfolio_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "investments__calculate_sharpe_ratio",
+    "description": "Calculate mocked Sharpe ratio for a portfolio.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "portfolio_id": {
+          "title": "Portfolio Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "portfolio_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "investments__calculate_sortino_ratio",
+    "description": "Calculate mocked Sortino ratio for a portfolio.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "portfolio_id": {
+          "title": "Portfolio Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "portfolio_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "investments__review_fund_overlap",
+    "description": "Review overlap between funds in a portfolio.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "portfolio_id": {
+          "title": "Portfolio Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "portfolio_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "investments__assess_currency_exposure",
+    "description": "Assess currency exposure in a portfolio.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "portfolio_id": {
+          "title": "Portfolio Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "portfolio_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "investments__recommend_cash_allocation",
+    "description": "Recommend cash allocation based on liquidity need.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "portfolio_id": {
+          "title": "Portfolio Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "portfolio_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "investments__estimate_drawdown_risk",
+    "description": "Estimate potential drawdown risk.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "portfolio_id": {
+          "title": "Portfolio Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "portfolio_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "investments__review_structured_note",
+    "description": "Review suitability of a structured note.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "portfolio_id": {
+          "title": "Portfolio Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "portfolio_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "investments__calculate_yield_to_maturity",
+    "description": "Calculate mocked yield to maturity.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "portfolio_id": {
+          "title": "Portfolio Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "portfolio_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "investments__estimate_total_expense_ratio",
+    "description": "Estimate total portfolio expense ratio.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "portfolio_id": {
+          "title": "Portfolio Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "portfolio_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "investments__review_private_market_commitment",
+    "description": "Review private market commitment pacing.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "portfolio_id": {
+          "title": "Portfolio Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "portfolio_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "investments__assess_factor_exposure",
+    "description": "Assess factor exposure such as value or momentum.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "portfolio_id": {
+          "title": "Portfolio Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "portfolio_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "investments__calculate_tracking_error",
+    "description": "Calculate tracking error versus a benchmark.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "portfolio_id": {
+          "title": "Portfolio Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "portfolio_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "investments__recommend_glide_path",
+    "description": "Recommend target-date glide path allocation.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "portfolio_id": {
+          "title": "Portfolio Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "portfolio_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "investments__screen_income_stocks",
+    "description": "Screen income stocks for dividend yield.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "portfolio_id": {
+          "title": "Portfolio Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "portfolio_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "investments__estimate_tax_drag",
+    "description": "Estimate tax drag on portfolio returns.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "portfolio_id": {
+          "title": "Portfolio Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "portfolio_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "investments__review_restricted_list",
+    "description": "Review whether a security is on restricted list.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "portfolio_id": {
+          "title": "Portfolio Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "portfolio_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "investments__calculate_portfolio_beta",
+    "description": "Calculate mocked portfolio beta.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "portfolio_id": {
+          "title": "Portfolio Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "portfolio_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "investments__assess_alternative_allocation",
+    "description": "Assess alternative investment allocation.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "portfolio_id": {
+          "title": "Portfolio Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "portfolio_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "investments__review_margin_requirement",
+    "description": "Review margin requirement for a trade.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "portfolio_id": {
+          "title": "Portfolio Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "portfolio_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "investments__estimate_scenario_return",
+    "description": "Estimate portfolio return under a scenario.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "portfolio_id": {
+          "title": "Portfolio Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "portfolio_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "investments__calculate_required_minimum_distribution",
+    "description": "Calculate mocked retirement distribution.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "portfolio_id": {
+          "title": "Portfolio Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "portfolio_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "investments__review_client_investment_objective",
+    "description": "Review client investment objective alignment.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "portfolio_id": {
+          "title": "Portfolio Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "portfolio_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "investments__screen_low_volatility_etfs",
+    "description": "Screen low-volatility ETF candidates.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "portfolio_id": {
+          "title": "Portfolio Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "portfolio_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "investments__estimate_reinvestment_income",
+    "description": "Estimate reinvestment income.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "portfolio_id": {
+          "title": "Portfolio Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "portfolio_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "investments__calculate_capital_gains_budget",
+    "description": "Calculate capital gains budget.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "portfolio_id": {
+          "title": "Portfolio Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "portfolio_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "investments__review_portfolio_turnover",
+    "description": "Review portfolio turnover.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "portfolio_id": {
+          "title": "Portfolio Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "portfolio_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "investments__assess_fiduciary_watchlist",
+    "description": "Assess fiduciary watchlist items.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "portfolio_id": {
+          "title": "Portfolio Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "portfolio_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "investments__summarize_investment_proposal",
+    "description": "Summarize mocked investment proposal highlights.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "portfolio_id": {
+          "title": "Portfolio Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "portfolio_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "accounts__get_account_balance",
+    "description": "Return mocked current account balance.",
+    "parameters": {
+      "properties": {
+        "account_id": {
+          "title": "Account Id",
+          "type": "string"
+        },
+        "as_of_date": {
+          "title": "As Of Date",
+          "type": "string"
+        }
+      },
+      "required": [
+        "account_id",
+        "as_of_date"
+      ],
+      "title": "get_account_balanceArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "accounts__list_recent_transactions",
+    "description": "List mocked recent transactions.",
+    "parameters": {
+      "properties": {
+        "account_id": {
+          "title": "Account Id",
+          "type": "string"
+        },
+        "days": {
+          "title": "Days",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "account_id",
+        "days"
+      ],
+      "title": "list_recent_transactionsArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "accounts__categorize_transaction",
+    "description": "Categorize a transaction.",
+    "parameters": {
+      "properties": {
+        "transaction_id": {
+          "title": "Transaction Id",
+          "type": "string"
+        },
+        "merchant_name": {
+          "title": "Merchant Name",
+          "type": "string"
+        },
+        "amount": {
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "transaction_id",
+        "merchant_name",
+        "amount"
+      ],
+      "title": "categorize_transactionArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "accounts__detect_overdraft_risk",
+    "description": "Assess mocked overdraft risk.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "account_id": {
+          "title": "Account Id",
+          "type": "string"
+        },
+        "projected_debits": {
+          "title": "Projected Debits",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "account_id",
+        "projected_debits"
+      ],
+      "title": "detect_overdraft_riskArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "accounts__create_payment_instruction",
+    "description": "Create a mocked payment instruction.",
+    "parameters": {
+      "properties": {
+        "account_id": {
+          "title": "Account Id",
+          "type": "string"
+        },
+        "beneficiary_iban": {
+          "title": "Beneficiary Iban",
+          "type": "string"
+        },
+        "amount": {
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "account_id",
+        "beneficiary_iban",
+        "amount"
+      ],
+      "title": "create_payment_instructionArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "accounts__validate_iban",
+    "description": "Validate an IBAN format at a mocked level.",
+    "parameters": {
+      "properties": {
+        "iban": {
+          "title": "Iban",
+          "type": "string"
+        },
+        "country_code": {
+          "title": "Country Code",
+          "type": "string"
+        }
+      },
+      "required": [
+        "iban",
+        "country_code"
+      ],
+      "title": "validate_ibanArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "accounts__get_direct_debits",
+    "description": "Return mocked direct debits.",
+    "parameters": {
+      "properties": {
+        "account_id": {
+          "title": "Account Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "account_id"
+      ],
+      "title": "get_direct_debitsArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "accounts__summarize_cash_flow",
+    "description": "Summarize cash flow for a date range.",
+    "parameters": {
+      "properties": {
+        "account_id": {
+          "title": "Account Id",
+          "type": "string"
+        },
+        "start_date": {
+          "title": "Start Date",
+          "type": "string"
+        },
+        "end_date": {
+          "title": "End Date",
+          "type": "string"
+        }
+      },
+      "required": [
+        "account_id",
+        "start_date",
+        "end_date"
+      ],
+      "title": "summarize_cash_flowArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "accounts__flag_unusual_spend",
+    "description": "Flag unusually high spend.",
+    "parameters": {
+      "properties": {
+        "account_id": {
+          "title": "Account Id",
+          "type": "string"
+        },
+        "category": {
+          "title": "Category",
+          "type": "string"
+        },
+        "amount": {
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "account_id",
+        "category",
+        "amount"
+      ],
+      "title": "flag_unusual_spendArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "accounts__get_card_status",
+    "description": "Return card status.",
+    "parameters": {
+      "properties": {
+        "card_id": {
+          "title": "Card Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "card_id"
+      ],
+      "title": "get_card_statusArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "accounts__freeze_card",
+    "description": "Mock freezing a card.",
+    "parameters": {
+      "properties": {
+        "card_id": {
+          "title": "Card Id",
+          "type": "string"
+        },
+        "reason": {
+          "title": "Reason",
+          "type": "string"
+        }
+      },
+      "required": [
+        "card_id",
+        "reason"
+      ],
+      "title": "freeze_cardArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "accounts__calculate_monthly_fees",
+    "description": "Calculate mocked monthly account fees.",
+    "parameters": {
+      "properties": {
+        "account_id": {
+          "title": "Account Id",
+          "type": "string"
+        },
+        "month": {
+          "title": "Month",
+          "type": "string"
+        }
+      },
+      "required": [
+        "account_id",
+        "month"
+      ],
+      "title": "calculate_monthly_feesArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "accounts__check_account_kyc_status",
+    "description": "Return KYC status for current account servicing.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "customer_id"
+      ],
+      "title": "check_account_kyc_statusArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "accounts__get_savings_sweep_recommendation",
+    "description": "Recommend a sweep from current account to savings.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "account_id": {
+          "title": "Account Id",
+          "type": "string"
+        },
+        "minimum_buffer": {
+          "title": "Minimum Buffer",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "account_id",
+        "minimum_buffer"
+      ],
+      "title": "get_savings_sweep_recommendationArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "accounts__estimate_foreign_exchange_fee",
+    "description": "Estimate FX fee for account transaction.",
+    "parameters": {
+      "properties": {
+        "account_id": {
+          "title": "Account Id",
+          "type": "string"
+        },
+        "source_currency": {
+          "title": "Source Currency",
+          "type": "string"
+        },
+        "target_currency": {
+          "title": "Target Currency",
+          "type": "string"
+        },
+        "amount": {
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "account_id",
+        "source_currency",
+        "target_currency",
+        "amount"
+      ],
+      "title": "estimate_foreign_exchange_feeArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "accounts__get_standing_orders",
+    "description": "List mocked standing orders.",
+    "parameters": {
+      "properties": {
+        "account_id": {
+          "title": "Account Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "account_id"
+      ],
+      "title": "get_standing_ordersArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "accounts__project_end_of_month_balance",
+    "description": "Project end-of-month balance.",
+    "parameters": {
+      "properties": {
+        "account_id": {
+          "title": "Account Id",
+          "type": "string"
+        },
+        "expected_income": {
+          "title": "Expected Income",
+          "type": "number"
+        },
+        "expected_spend": {
+          "title": "Expected Spend",
+          "type": "number"
+        }
+      },
+      "required": [
+        "account_id",
+        "expected_income",
+        "expected_spend"
+      ],
+      "title": "project_end_of_month_balanceArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "accounts__find_duplicate_charges",
+    "description": "Find mocked duplicate charges.",
+    "parameters": {
+      "properties": {
+        "account_id": {
+          "title": "Account Id",
+          "type": "string"
+        },
+        "lookback_days": {
+          "title": "Lookback Days",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "account_id",
+        "lookback_days"
+      ],
+      "title": "find_duplicate_chargesArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "accounts__get_account_alert_preferences",
+    "description": "Return account alert preferences.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "account_id": {
+          "title": "Account Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "customer_id",
+        "account_id"
+      ],
+      "title": "get_account_alert_preferencesArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "accounts__recommend_fee_waiver",
+    "description": "Recommend whether to waive account fees.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "account_id": {
+          "title": "Account Id",
+          "type": "string"
+        },
+        "relationship_years": {
+          "title": "Relationship Years",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "customer_id",
+        "account_id",
+        "relationship_years"
+      ],
+      "title": "recommend_fee_waiverArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "accounts__review_payment_limit",
+    "description": "Review payment limit for a current account.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "account_id": {
+          "title": "Account Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "account_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "accounts__increase_transfer_limit",
+    "description": "Mock increasing transfer limit.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "account_id": {
+          "title": "Account Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "account_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "accounts__assess_salary_pattern",
+    "description": "Assess salary pattern in current account transactions.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "account_id": {
+          "title": "Account Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "account_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "accounts__detect_subscription_spend",
+    "description": "Detect recurring subscription spend.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "account_id": {
+          "title": "Account Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "account_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "accounts__summarize_merchant_spend",
+    "description": "Summarize spend by merchant.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "account_id": {
+          "title": "Account Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "account_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "accounts__review_chargeback_case",
+    "description": "Review card chargeback case.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "account_id": {
+          "title": "Account Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "account_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "accounts__create_card_replacement",
+    "description": "Create mocked card replacement order.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "account_id": {
+          "title": "Account Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "account_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "accounts__estimate_cash_withdrawal_fee",
+    "description": "Estimate cash withdrawal fee.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "account_id": {
+          "title": "Account Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "account_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "accounts__review_joint_account_access",
+    "description": "Review joint account access status.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "account_id": {
+          "title": "Account Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "account_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "accounts__check_sepa_reachability",
+    "description": "Check SEPA reachability for a beneficiary.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "account_id": {
+          "title": "Account Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "account_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "accounts__validate_payment_reference",
+    "description": "Validate payment reference format.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "account_id": {
+          "title": "Account Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "account_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "accounts__assess_fraud_alert",
+    "description": "Assess mocked fraud alert.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "account_id": {
+          "title": "Account Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "account_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "accounts__review_account_closure_readiness",
+    "description": "Review account closure readiness.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "account_id": {
+          "title": "Account Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "account_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "accounts__calculate_interest_on_positive_balance",
+    "description": "Calculate interest on positive balance.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "account_id": {
+          "title": "Account Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "account_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "accounts__recommend_budget_category_limit",
+    "description": "Recommend budget category limit.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "account_id": {
+          "title": "Account Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "account_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "accounts__detect_income_interruption",
+    "description": "Detect income interruption risk.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "account_id": {
+          "title": "Account Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "account_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "accounts__review_cash_deposit_pattern",
+    "description": "Review cash deposit pattern.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "account_id": {
+          "title": "Account Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "account_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "accounts__estimate_international_transfer_time",
+    "description": "Estimate international transfer time.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "account_id": {
+          "title": "Account Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "account_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "accounts__check_beneficiary_risk",
+    "description": "Check beneficiary risk score.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "account_id": {
+          "title": "Account Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "account_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "accounts__review_power_of_attorney",
+    "description": "Review power of attorney on account.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "account_id": {
+          "title": "Account Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "account_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "accounts__summarize_monthly_statement",
+    "description": "Summarize monthly current account statement.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "account_id": {
+          "title": "Account Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "account_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "accounts__detect_round_number_transfers",
+    "description": "Detect round-number transfer pattern.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "account_id": {
+          "title": "Account Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "account_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "accounts__review_account_package_fit",
+    "description": "Review current account package fit.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "account_id": {
+          "title": "Account Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "account_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "accounts__estimate_atm_rebate",
+    "description": "Estimate ATM fee rebate.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "account_id": {
+          "title": "Account Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "account_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "accounts__check_dormancy_risk",
+    "description": "Check account dormancy risk.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "account_id": {
+          "title": "Account Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "account_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "accounts__review_negative_balance_history",
+    "description": "Review negative balance history.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "account_id": {
+          "title": "Account Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "account_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "accounts__recommend_alert_threshold",
+    "description": "Recommend balance alert threshold.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "account_id": {
+          "title": "Account Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "account_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "accounts__assess_travel_notice_need",
+    "description": "Assess whether travel notice is needed.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "account_id": {
+          "title": "Account Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "account_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "accounts__review_cashback_eligibility",
+    "description": "Review cashback eligibility.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "account_id": {
+          "title": "Account Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "account_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  },
+  {
+    "type": "function",
+    "name": "accounts__summarize_account_health",
+    "description": "Summarize mocked account health.",
+    "parameters": {
+      "properties": {
+        "customer_id": {
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "account_id": {
+          "title": "Account Id",
+          "type": "string"
+        },
+        "amount": {
+          "default": 1000.0,
+          "title": "Amount",
+          "type": "number"
+        }
+      },
+      "required": [
+        "customer_id",
+        "account_id"
+      ],
+      "title": "toolArguments",
+      "type": "object"
+    }
+  }
+]
